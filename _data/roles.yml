@@ -1,0 +1,30 @@
+- title: "Real Estate Content Writer"
+  type: "Freelance · Remote"
+  icon: book
+  desc: "Write practical, well-sourced guides for owners who sell, rent or buy without an agent. Paid per article."
+  skills: ["Real estate, legal or finance knowledge", "Clear plain-English writing", "Source-checking discipline"]
+- title: "Local Market Ambassador"
+  type: "Part-time · Commission"
+  icon: pin
+  desc: "Be ByOwners.com in your city: help local owners list, connect them with vetted pros, and earn on every successful referral."
+  skills: ["Local network", "Comfortable on the phone", "Self-starter"]
+- title: "Video Creator (YouTube & Shorts)"
+  type: "Freelance · Remote"
+  icon: camera
+  desc: "Produce short, punchy how-to videos: pricing a home, staging on a budget, spotting rental scams."
+  skills: ["Scripting & editing", "On-camera or animation", "Basic SEO for YouTube"]
+- title: "Partnerships & Sales Rep"
+  type: "Commission · Remote"
+  icon: handshake
+  desc: "Sign flat-fee brokers, attorneys, inspectors, lenders and photographers to the ByOwners Pro Network."
+  skills: ["B2B sales", "Real estate industry contacts", "CRM habits"]
+- title: "Front-End Developer"
+  type: "Contract · Remote"
+  icon: tool
+  desc: "Ship features on our static-first stack: listing search, maps, calculators and owner dashboards."
+  skills: ["HTML/CSS/JS", "Jekyll or static site generators", "Accessibility & performance"]
+- title: "Community & Listing Moderator"
+  type: "Part-time · Remote"
+  icon: shield
+  desc: "Review incoming listings for accuracy, fair-housing compliance and scam signals before they go live."
+  skills: ["Attention to detail", "Fair housing basics", "Calm, clear communicator"]

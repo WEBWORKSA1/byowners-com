@@ -1,0 +1,10 @@
+- { key: flat-fee-mls, title: "Flat-Fee MLS Brokers", icon: globe, desc: "Get on the MLS for a flat fee while you keep control." }
+- { key: attorney, title: "Real Estate Attorneys", icon: scale, desc: "Contracts, disclosures, title issues and closings." }
+- { key: title-escrow, title: "Title & Escrow", icon: lock, desc: "Neutral closing, title insurance and safe fund transfer." }
+- { key: inspector, title: "Home Inspectors", icon: search, desc: "Pre-listing or buyer inspections that prevent surprises." }
+- { key: appraiser, title: "Appraisers", icon: chart, desc: "Independent valuation to price with confidence." }
+- { key: photographer, title: "Photographers & Stagers", icon: camera, desc: "Listing photos, video tours and staging." }
+- { key: lender, title: "Lenders & Mortgage Brokers", icon: dollar, desc: "Pre-approvals for buyers and refinance options." }
+- { key: property-manager, title: "Property Managers", icon: key, desc: "Tenant placement or full-service management." }
+- { key: cpa, title: "CPAs & Tax Pros", icon: file, desc: "Capital gains, 1031 exchanges and rental taxes." }
+- { key: movers, title: "Movers & Cleaners", icon: home, desc: "Move-out, deep cleaning and junk removal." }
