@@ -1,0 +1,10 @@
+selling:   { label: "Selling",        icon: home,      desc: "Sell your home by owner, step by step." }
+renting:   { label: "Renting",        icon: key,       desc: "Landlord playbooks for owners who rent." }
+buying:    { label: "Buying",         icon: bag,       desc: "Buy directly from owners with confidence." }
+vacation:  { label: "Vacation Homes", icon: sun,       desc: "Run a short-term rental the right way." }
+money:     { label: "Money & Taxes",  icon: dollar,    desc: "Commissions, closing costs and taxes." }
+legal:     { label: "Legal & Paperwork", icon: scale,  desc: "Contracts, disclosures, leases, closing." }
+vehicles:  { label: "Vehicles",       icon: car,       desc: "Sell or buy cars, RVs and boats privately." }
+business:  { label: "Business",       icon: briefcase, desc: "Sell or buy a small business by owner." }
+safety:    { label: "Safety & Scams", icon: shield,    desc: "Spot fraud before it costs you." }
+marketing: { label: "Marketing",      icon: megaphone, desc: "Photos, staging and listing copy that sells." }
