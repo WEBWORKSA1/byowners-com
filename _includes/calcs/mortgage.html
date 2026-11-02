@@ -1,0 +1,33 @@
+<div class="calc">
+  <div class="calc-panel">
+    <h3>Loan details</h3>
+    {% include calcs/range.html k="price" label="Home price" unit="$" min=50000 max=3000000 step=5000 value=400000 %}
+    {% include calcs/range.html k="downPct" label="Down payment" unit="%" min=0 max=100 step=0.5 value=10 %}
+    {% include calcs/range.html k="rate" label="Interest rate" unit="% APR" min=1 max=15 step=0.05 value=6.5 hint="Pre-filled with the latest Freddie Mac 30-year average when available." %}
+    <div class="field"><label for="f-term">Loan term</label><select id="f-term" data-k="term"><option value="30" selected>30 years</option><option value="20">20 years</option><option value="15">15 years</option><option value="10">10 years</option></select></div>
+    <div class="form-row">
+      {% include calcs/num.html k="taxPct" label="Property tax" unit="%/yr" value=1.1 step=0.05 %}
+      {% include calcs/num.html k="ins" label="Home insurance" unit="$/yr" value=1800 %}
+      {% include calcs/num.html k="hoa" label="HOA dues" unit="$/mo" value=0 %}
+      {% include calcs/num.html k="pmiPct" label="PMI (if under 20% down)" unit="%/yr" value=0.5 step=0.05 %}
+    </div>
+    {% include calcs/share.html %}
+  </div>
+  <div class="calc-result" aria-live="polite">
+    <span class="badge badge-accent">Estimated monthly payment</span>
+    <div class="result-big" data-o="monthly">$0</div>
+    <div class="chart-wrap" data-chart="donut"></div>
+    <div class="legend" data-legend></div>
+    <div class="result-rows">
+      <div class="result-row"><span>Loan amount</span><b data-o="loan">$0</b></div>
+      <div class="result-row"><span>Principal &amp; interest</span><b data-o="pi">$0</b></div>
+      <div class="result-row"><span>Total interest over the loan</span><b data-o="totalInt">$0</b></div>
+      <div class="result-row"><span>Payoff date</span><b data-o="payoffDate">—</b></div>
+    </div>
+  </div>
+</div>
+<div class="calc-panel mt-3">
+  <div class="flex-between"><h3 class="mb-0">Amortization: balance &amp; equity over time</h3><span class="small muted">Year-by-year</span></div>
+  <div class="chart-wrap" data-chart="amort"></div>
+  <div class="amort-table mt-2"><table><thead><tr><th>Year</th><th>Principal paid</th><th>Interest paid</th><th>Balance</th></tr></thead><tbody data-o="amortRows"></tbody></table></div>
+</div>

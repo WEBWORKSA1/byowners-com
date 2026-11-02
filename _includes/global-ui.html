@@ -1,0 +1,52 @@
+<!-- Site search (Ctrl/Cmd + K) -->
+<div class="modal" id="searchModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-panel wide" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+    <button class="icon-btn modal-close" data-close-modal aria-label="Close search">{% include icon.html name="x" %}</button>
+    <h3 id="searchTitle">Search ByOwners.com</h3>
+    <div class="input-icon">{% include icon.html name="search" %}<input type="search" id="siteSearchInput" placeholder="Try “closing costs”, “tenant screening”, “mortgage”…" autocomplete="off" aria-label="Search"></div>
+    <div class="search-results" id="siteSearchResults" role="listbox"></div>
+    <p class="tiny muted mt-2">Tip: press <span class="kbd">Ctrl</span> + <span class="kbd">K</span> anywhere to search. <a href="{{ '/search/' | relative_url }}">Full search page</a></p>
+  </div>
+</div>
+
+<!-- Exit-intent lead magnet -->
+<div class="modal" id="exitModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="exitTitle">
+    <button class="icon-btn modal-close" data-close-modal aria-label="Close" style="color:#fff;border-color:rgba(255,255,255,.4)">{% include icon.html name="x" %}</button>
+    <div class="modal-hero">
+      <span class="badge badge-accent">Free · 2-minute read</span>
+      <h3 id="exitTitle" class="mt-1">Before you go — grab the 50-step owner checklist</h3>
+      <p>The exact sequence owners use to prep, price, list, negotiate and close without paying a full commission.</p>
+    </div>
+    <form data-form="lead-magnet" data-subject="Lead magnet: FSBO checklist" data-success="checklist" novalidate>
+      <div class="field"><label for="exitName">First name</label><input id="exitName" name="first_name" type="text" autocomplete="given-name" required></div>
+      <div class="field"><label for="exitEmail">Email</label><input id="exitEmail" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="exitGoal">I'm planning to…</label>
+        <select id="exitGoal" name="goal"><option>Sell a home</option><option>Rent out a property</option><option>Buy from an owner</option><option>Sell land</option><option>Sell a vehicle</option><option>Sell a business</option><option>Just learning</option></select>
+      </div>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary btn-block btn-lg" type="submit">Send me the checklist {% include icon.html name="arrow-right" %}</button>
+      <p class="consent mt-1">No spam. Unsubscribe anytime. See our <a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a>.</p>
+    </form>
+  </div>
+</div>
+
+<!-- Cookie / privacy notice -->
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <p><strong>We value your privacy.</strong> We use cookies to run this site, measure traffic and show ads from Google, which may use cookies to personalize ads. Choose “Accept all” or keep only essential cookies. <a href="{{ '/privacy/' | relative_url }}#cookies">Details</a></p>
+  <div class="flex">
+    <button class="btn btn-primary btn-sm" data-consent="all">Accept all</button>
+    <button class="btn btn-outline btn-sm" data-consent="essential">Essential only</button>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toasts" aria-live="polite"></div>
+<button class="to-top" id="toTop" aria-label="Back to top">{% include icon.html name="arrow-up" %}</button>
+{% unless page.hide_mobile_cta %}
+<div class="mobile-cta" id="mobileCta">
+  <a class="btn btn-outline" href="{{ '/sell/' | relative_url }}">{% include icon.html name="tag" %} List free</a>
+  <a class="btn btn-primary" href="{{ '/get-started/' | relative_url }}">{% include icon.html name="zap" %} Get my plan</a>
+</div>
+{% endunless %}
