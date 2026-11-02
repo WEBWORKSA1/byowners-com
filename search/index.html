@@ -1,0 +1,19 @@
+---
+layout: page
+title: "Search ByOwners.com"
+crumb: "Search"
+h1: "Search"
+lead: "Find guides, tools, listings and pages."
+description: "Search ByOwners.com guides, calculators, listings and pages."
+noindex: true
+sitemap: false
+---
+<section class="section" style="padding-top:28px">
+  <div class="container container-sm">
+    <form id="pageSearchForm" role="search" class="mb-3"><div class="input-icon">{% include icon.html name="search" %}<input id="pageSearch" type="search" name="q" placeholder="Search guides, tools, listings…" aria-label="Search" autofocus></div></form>
+    <div class="search-results" id="pageResults" style="max-height:none"></div>
+  </div>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded",function(){var i=document.getElementById("pageSearch"),r=document.getElementById("pageResults"),q=new URLSearchParams(location.search).get("q")||"";i.value=q;function go(){window.BO&&BO.runSearch(i.value,r,40)}go();var t;i.addEventListener("input",function(){clearTimeout(t);t=setTimeout(function(){go();var u=new URL(location.href);u.searchParams.set("q",i.value);history.replaceState(null,"",u)},150)});document.getElementById("pageSearchForm").addEventListener("submit",function(e){e.preventDefault();go()})});
+</script>

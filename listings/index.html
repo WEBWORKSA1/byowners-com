@@ -1,0 +1,46 @@
+---
+layout: page
+title: "Browse By-Owner Listings"
+crumb: "Listings"
+eyebrow: "Direct from owners"
+eyebrow_icon: search
+h1: "Browse listings — homes, rentals, land, vehicles & businesses by owner"
+lead: "Every listing comes straight from the owner and is reviewed by a person. Filter, map, save favorites and message owners privately."
+description: "Search homes for sale by owner, rentals by owner, land, vehicles, boats, RVs and businesses for sale directly from owners. Filter, map and save favorites."
+extra_css: ["https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"]
+extra_ext_js: ["https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"]
+extra_js: ["/assets/js/listings.js"]
+---
+<section class="section" style="padding-top:28px" id="listingsApp">
+  <div class="container">
+    <form class="filters" id="lFilters" role="search">
+      <div class="field span-2"><label for="fq">Keyword or location</label><div class="input-icon">{% include icon.html name="search" %}<input id="fq" name="q" type="search" placeholder="City, ZIP, “acre”, “pool”…"></div></div>
+      <div class="field"><label for="fcat">Category</label><select id="fcat" name="cat"><option value="">All categories</option>{% for c in site.data.listing_categories %}<option value="{{ c.key }}">{{ c.label }}</option>{% endfor %}</select></div>
+      <div class="field"><label for="fstate">State</label><select id="fstate" name="state"><option value="">Any state</option></select></div>
+      <div class="field"><label for="fmin">Min $</label><input id="fmin" name="min" type="number" min="0" step="1000" placeholder="0"></div>
+      <div class="field"><label for="fmax">Max $</label><input id="fmax" name="max" type="number" min="0" step="1000" placeholder="Any"></div>
+      <div class="field"><label for="fbeds">Beds</label><select id="fbeds" name="beds"><option value="">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></div>
+      <div class="field"><label for="fsort">Sort</label><select id="fsort" name="sort"><option value="">Featured &amp; newest</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option></select></div>
+    </form>
+    <div class="toolbar">
+      <strong id="lCount" aria-live="polite">Loading…</strong>
+      <div class="flex">
+        <button type="button" class="chip" data-saved-toggle aria-pressed="false">{% include icon.html name="heart" %} Saved (<span data-fav-count>0</span>)</button>
+        <button type="button" class="btn btn-ghost btn-sm" data-reset>{% include icon.html name="refresh" %} Reset</button>
+        <div class="seg" role="group" aria-label="View">
+          <button type="button" data-view="grid" aria-pressed="true">{% include icon.html name="grid" %} Grid</button>
+          <button type="button" data-view="list" aria-pressed="false">{% include icon.html name="list" %} List</button>
+          <button type="button" data-view="map" aria-pressed="false">{% include icon.html name="map" %} Map</button>
+        </div>
+      </div>
+    </div>
+    <div id="map" hidden></div>
+    <div class="listings-grid mt-2" id="lGrid"></div>
+    <div class="cta-band mt-4">
+      <div><h2>Don't see the right one yet?</h2><p>Create a free alert and get matching by-owner listings by email the moment they're approved.</p></div>
+      <div class="flex"><a class="btn btn-white btn-lg" href="{{ '/get-started/' | relative_url }}?goal=buy">Create a free alert</a><a class="btn btn-outline btn-lg" style="background:transparent;color:#fff !important;border-color:rgba(255,255,255,.5)" href="{{ '/sell/' | relative_url }}">List yours free</a></div>
+    </div>
+    {% include ad.html slot="in_feed" %}
+    <div class="notice-brand mt-3 small">{% include icon.html name="shield" %} <strong>Stay safe:</strong> see properties in person, verify ownership with county records, and never wire deposits to someone you haven't met. <a href="{{ '/safety/' | relative_url }}">Read our safety tips</a>.</div>
+  </div>
+</section>
