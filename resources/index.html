@@ -1,0 +1,29 @@
+---
+layout: page
+title: "Official Resources for Owners, Buyers & Landlords"
+crumb: "Resources"
+eyebrow: "Trusted, official sources"
+eyebrow_icon: globe
+h1: "Official resources for selling, renting & buying by owner"
+lead: "Government agencies and public data sources we rely on — taxes, disclosures, fair housing, fraud reporting, flood maps, vehicle history and more."
+description: "Curated official resources for property owners: IRS publications, EPA lead disclosure, HUD fair housing, CFPB home buying, FTC and FBI fraud reporting, FEMA flood maps."
+---
+<section class="section" style="padding-top:28px">
+  <div class="container">
+    <div class="grid grid-2">
+      {% for g in site.data.resources %}
+      <div class="card">
+        <h3 class="flex">{% include icon.html name=g.icon %} {{ g.group }}</h3>
+        <ul class="ticks">{% for r in g.items %}<li>{% include icon.html name="external" %}<span><a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.name }}</a><br><span class="small muted">{{ r.note }}</span></span></li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+    {% include ad.html slot="in_feed" %}
+    <div class="grid grid-3 mt-4">
+      <a class="card hover" href="{{ '/checklist/' | relative_url }}"><div class="card-icon">{% include icon.html name="check-circle" class="ic-lg" %}</div><h3>FSBO checklist</h3><p>50 interactive steps from prep to closing.</p></a>
+      <a class="card hover" href="{{ '/glossary/' | relative_url }}"><div class="card-icon violet">{% include icon.html name="tag" class="ic-lg" %}</div><h3>Glossary</h3><p>60+ real estate terms in plain English.</p></a>
+      <a class="card hover" href="{{ '/tools/' | relative_url }}"><div class="card-icon warm">{% include icon.html name="calc" class="ic-lg" %}</div><h3>Calculators</h3><p>Savings, mortgage, rental ROI and more.</p></a>
+    </div>
+    <p class="tiny muted mt-3">External links go to independent government and public websites. ByOwners.com is not affiliated with these agencies and is not responsible for their content.</p>
+  </div>
+</section>

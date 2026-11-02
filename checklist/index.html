@@ -1,0 +1,45 @@
+---
+layout: page
+title: "Interactive For-Sale-By-Owner Checklist"
+crumb: "FSBO checklist"
+eyebrow: "Interactive checklist"
+eyebrow_icon: check-circle
+h1: "The 50-step sell-by-owner checklist"
+lead: "Every task from planning to closing, in order. Tick items off as you go — your progress saves in this browser automatically."
+description: "Free interactive FSBO checklist: 50 steps to sell your house by owner, from pricing and disclosures to marketing, offers and closing. Progress saves automatically."
+---
+<section class="section" style="padding-top:28px">
+  <div class="container with-sidebar">
+    <div data-checklist>
+      <div class="card mb-3 no-print">
+        <div class="flex-between"><strong>Your progress: <span data-cl-count>0 of 0</span></strong><span class="badge badge-brand" data-cl-pct>0%</span></div>
+        <div class="progress mt-1 mb-0"><span data-cl-bar style="width:0"></span></div>
+        <div class="flex mt-2"><button class="btn btn-outline btn-sm" onclick="window.print()">{% include icon.html name="printer" %} Print / save as PDF</button><button class="btn btn-ghost btn-sm" data-cl-reset>{% include icon.html name="refresh" %} Reset</button><a class="btn btn-ghost btn-sm" href="#" data-open-magnet>{% include icon.html name="mail" %} Email it to me</a></div>
+      </div>
+      {% for ph in site.data.checklist %}{% assign pi = forloop.index %}
+      <div class="checklist-phase">
+        <h3>{{ ph.phase }} <span class="badge" data-phase-count>0/{{ ph.items | size }}</span></h3>
+        {% for it in ph.items %}
+        <label class="cl-item" for="cl-{{ pi }}-{{ forloop.index }}"><input type="checkbox" id="cl-{{ pi }}-{{ forloop.index }}"><span>{{ it[0] }}{% if it[1] != "" %}<small>{{ it[1] }}</small>{% endif %}</span></label>
+        {% endfor %}
+      </div>
+      {% if pi == 3 %}{% include lead-cta.html type="seller" %}{% endif %}
+      {% endfor %}
+      <p class="tiny muted">Requirements vary by state. Use this checklist alongside advice from a local real estate attorney or title company.</p>
+    </div>
+    <aside class="no-print">
+      <div class="sticky-side">
+        <div class="widget"><h3>{% include icon.html name="book" %} Guides for each phase</h3><ul>
+          <li><a href="{{ '/guides/how-to-sell-your-house-by-owner/' | relative_url }}">Complete sell-by-owner guide</a></li>
+          <li><a href="{{ '/guides/how-to-price-a-home-for-sale-by-owner/' | relative_url }}">Pricing your home</a></li>
+          <li><a href="{{ '/guides/documents-needed-to-sell-a-house-by-owner/' | relative_url }}">Documents you need</a></li>
+          <li><a href="{{ '/guides/how-to-market-a-for-sale-by-owner-home/' | relative_url }}">Marketing your listing</a></li>
+          <li><a href="{{ '/guides/negotiating-offers-without-an-agent/' | relative_url }}">Negotiating offers</a></li>
+          <li><a href="{{ '/guides/closing-a-for-sale-by-owner-sale/' | relative_url }}">Closing the sale</a></li>
+        </ul></div>
+        <div class="widget widget-brand"><h3>{% include icon.html name="tag" %} Ready to list?</h3><p>Publish your listing free and start getting inquiries.</p><a class="btn btn-white btn-block" href="{{ '/sell/' | relative_url }}">List free</a></div>
+        {% include ad.html slot="sidebar" %}
+      </div>
+    </aside>
+  </div>
+</section>
