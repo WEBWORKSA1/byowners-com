@@ -1,0 +1,32 @@
+- key: listing-photo
+  title: "Best By-Owner Listing Photo"
+  cadence: "Monthly"
+  status: "Open for entries"
+  icon: camera
+  desc: "Show us the single best photo from your by-owner listing — kitchen, curb appeal or that sunset from the deck."
+  prizes: ["Free Spotlight plan (60 days)", "Winner feature on our homepage", "Sponsor-funded cash prize when a round is sponsored"]
+  judging: "Composition 40% · Lighting 30% · Storytelling 30%"
+- key: success-story
+  title: "Owner Success Story"
+  cadence: "Quarterly"
+  status: "Open for entries"
+  icon: star
+  desc: "Sold, rented or bought without an agent? Tell us how you did it, what you saved and what you'd do differently."
+  prizes: ["Published Owner Spotlight article", "Free Featured listing for your next property", "Sponsor-funded prize when available"]
+  judging: "Usefulness to other owners 50% · Clarity 30% · Originality 20%"
+- key: creator-challenge
+  title: "Creator Challenge: 60-Second Owner Tip"
+  cadence: "Quarterly"
+  status: "Accepting entries"
+  icon: play
+  desc: "Make a 60-second video with one genuinely useful tip for owners. Best tip wins and gets featured on our video hub."
+  prizes: ["Feature on the ByOwners video hub", "Paid creator contract offer", "Sponsor-funded prize when available"]
+  judging: "Accuracy 40% · Usefulness 40% · Production 20%"
+- key: ambassador-referral
+  title: "Ambassador Referral Challenge"
+  cadence: "Quarterly"
+  status: "Launching soon"
+  icon: users
+  desc: "Help owners in your community list on ByOwners.com. The ambassador with the most verified listings wins."
+  prizes: ["Ambassador of the Quarter title", "Commission bonus", "Sponsor-funded prize when available"]
+  judging: "Verified, approved listings referred during the quarter"
