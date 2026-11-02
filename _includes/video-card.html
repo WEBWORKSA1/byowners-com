@@ -1,0 +1,8 @@
+{%- assign v = include.video -%}
+<article class="v-card" data-cat="{{ v.category }}">
+  <button class="yt" type="button" data-yt="{{ v.id }}" aria-label="Play video: {{ v.title | escape }}" style="background-image:url('https://i.ytimg.com/vi/{{ v.id }}/hqdefault.jpg')"><span class="play"></span></button>
+  <div class="v-body">
+    <h3>{{ v.title }}</h3>
+    <p>{{ v.channel }}{% if v.published %} · {{ v.published | date: '%b %-d, %Y' }}{% endif %}</p>
+  </div>
+</article>

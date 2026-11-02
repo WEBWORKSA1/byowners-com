@@ -1,0 +1,45 @@
+---
+layout: default
+extra_js: ["/assets/js/listings.js"]
+---
+{%- assign primary_cat = page.list_cat | split: ',' | first -%}
+<section class="page-hero">
+  <div class="container split">
+    <div>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Home</a> {% include icon.html name="chevron-right" %} <a href="{{ '/listings/' | relative_url }}">Listings</a> {% include icon.html name="chevron-right" %} <span>{{ page.crumb | default: page.title }}</span></nav>
+      <span class="eyebrow">{% include icon.html name=page.icon %} {{ page.eyebrow }}</span>
+      <h1>{{ page.h1 | default: page.title }}</h1>
+      <p class="lead">{{ page.lead }}</p>
+      <div class="flex mt-3">
+        <a class="btn btn-primary btn-lg" href="{{ '/sell/' | relative_url }}?cat={{ primary_cat }}">{{ page.sell_cta | default: 'List free' }}</a>
+        <a class="btn btn-outline btn-lg" href="{{ '/listings/' | relative_url }}?cat={{ primary_cat }}">{{ page.browse_cta | default: 'Browse listings' }}</a>
+      </div>
+    </div>
+    <div class="card" style="box-shadow:var(--shadow-lg)">
+      {% assign c = site.data.ctas[page.cta] %}
+      <h3>{% include icon.html name=c.icon %} {{ c.title }}</h3>
+      <p>{{ c.text }}</p>
+      <a class="btn btn-primary btn-block mt-2" href="{{ '/get-started/' | relative_url }}?goal={{ c.goal }}">{{ c.button }}</a>
+      <p class="tiny muted mt-1">Free · No obligation · Reviewed by a real person</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="flex-between mb-3"><h2 class="mb-0">Latest {{ page.short | default: 'listings' }}</h2><a class="btn btn-outline btn-sm" href="{{ '/listings/' | relative_url }}?cat={{ primary_cat }}">See all {% include icon.html name="arrow-right" %}</a></div>
+    <div class="listings-grid" data-cat-listings="{{ page.list_cat }}" data-label="{{ page.short }}"></div>
+  </div>
+</section>
+<section class="section section-soft">
+  <div class="container with-sidebar">
+    <div class="prose">{{ content }}</div>
+    <aside>
+      <div class="sticky-side">
+        <div class="widget"><h3>{% include icon.html name="book" %} Guides</h3><ul>{% for slug in page.guides %}{% assign g = site.guides | where_exp: "x", "x.url contains slug" | first %}{% if g %}<li><a href="{{ g.url | relative_url }}">{{ g.title }}</a></li>{% endif %}{% endfor %}</ul></div>
+        <div class="widget"><h3>{% include icon.html name="calc" %} Tools</h3><ul>{% for t in page.tools %}{% assign tt = site.data.tools | where: "slug", t | first %}<li><a href="{{ '/tools/' | append: t | append: '/' | relative_url }}">{{ tt.title }}</a></li>{% endfor %}</ul></div>
+        {% include ad.html slot="sidebar" %}
+      </div>
+    </aside>
+  </div>
+</section>
+{% include newsletter.html id="cat" %}

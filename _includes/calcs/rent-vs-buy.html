@@ -1,0 +1,37 @@
+<div class="calc">
+  <div class="calc-panel">
+    <h3>Buying</h3>
+    {% include calcs/range.html k="price" label="Home price" unit="$" min=50000 max=3000000 step=5000 value=400000 %}
+    <div class="form-row">
+      {% include calcs/num.html k="downPct" label="Down payment" unit="%" value=10 step=1 %}
+      {% include calcs/num.html k="rate" label="Mortgage rate" unit="%" value=6.5 step=0.05 %}
+      {% include calcs/num.html k="taxPct" label="Property tax" unit="%/yr" value=1.1 step=0.05 %}
+      {% include calcs/num.html k="maintPct" label="Maintenance" unit="%/yr of value" value=1 step=0.1 %}
+      {% include calcs/num.html k="ins" label="Insurance + HOA" unit="$/yr" value=1800 %}
+      {% include calcs/num.html k="appr" label="Home appreciation" unit="%/yr" value=3 step=0.1 %}
+      {% include calcs/num.html k="buyClose" label="Buying closing costs" unit="%" value=3 step=0.1 %}
+      {% include calcs/num.html k="sellCost" label="Selling costs later" unit="%" value=3 step=0.1 hint="Lower if you sell by owner" %}
+    </div>
+    <h3 class="mt-2">Renting</h3>
+    <div class="form-row">
+      {% include calcs/num.html k="rent" label="Monthly rent" unit="$" value=2200 %}
+      {% include calcs/num.html k="rentInc" label="Rent increase" unit="%/yr" value=3 step=0.1 %}
+      {% include calcs/num.html k="ret" label="Investment return on cash" unit="%/yr" value=5 step=0.1 %}
+    </div>
+    {% include calcs/range.html k="years" label="Years you plan to stay" unit="yrs" min=1 max=30 step=1 value=7 %}
+    {% include calcs/share.html %}
+  </div>
+  <div class="calc-result" aria-live="polite">
+    <span class="badge badge-accent" data-o="winnerLabel">Verdict</span>
+    <div class="result-big" data-o="diff">$0</div>
+    <p style="color:#94a3b8;margin:0" data-o="verdict">—</p>
+    <div class="result-rows">
+      <div class="result-row"><span>Net cost of buying</span><b data-o="buyCost">$0</b></div>
+      <div class="result-row"><span>Net cost of renting</span><b data-o="rentCost">$0</b></div>
+      <div class="result-row"><span>Break-even year</span><b data-o="breakeven">—</b></div>
+      <div class="result-row"><span>Home equity at the end</span><b data-o="equity">$0</b></div>
+    </div>
+    <div class="chart-wrap" data-chart="lines"></div>
+    <div class="legend"><span><i style="background:#5eead4"></i>Buying (net)</span><span><i style="background:#fbbf24"></i>Renting (net)</span></div>
+  </div>
+</div>
