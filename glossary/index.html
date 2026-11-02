@@ -1,0 +1,29 @@
+---
+layout: page
+title: "Real Estate Glossary: Terms Every Owner Should Know"
+crumb: "Glossary"
+eyebrow: "Plain-English definitions"
+eyebrow_icon: tag
+h1: "Real estate glossary for owners, buyers & landlords"
+lead: "From amortization to zoning — the terms you'll meet when you sell, rent or buy by owner, explained simply."
+description: "Plain-English real estate glossary: escrow, earnest money, contingencies, title insurance, closing costs, cap rate, owner financing and 60+ more terms."
+---
+<section class="section" style="padding-top:20px">
+  <div class="container container-md glossary">
+    <div class="input-icon mb-2">{% include icon.html name="search" %}<input type="search" id="glossFilter" placeholder="Filter terms…" aria-label="Filter glossary terms"></div>
+    {% assign letters = "" %}{% for t in site.data.glossary %}{% assign l = t[0] | slice: 0 %}{% unless letters contains l %}{% assign letters = letters | append: l %}{% endunless %}{% endfor %}
+    <nav class="az" aria-label="Jump to letter">{% assign ls = letters | split: "" %}{% for l in ls %}<a href="#letter-{{ l }}">{{ l }}</a>{% endfor %}</nav>
+    <dl id="glossList">
+      {% assign cur = "" %}
+      {% for t in site.data.glossary %}{% assign l = t[0] | slice: 0 %}
+      {% if l != cur %}{% assign cur = l %}<h2 id="letter-{{ l }}" class="mt-3" style="font-size:1.6rem;color:var(--brand-600)">{{ l }}</h2>{% endif %}
+      <div class="term" id="{{ t[0] | slugify }}"><dt>{{ t[0] }}</dt><dd>{{ t[1] }}</dd></div>
+      {% if forloop.index == 25 %}{% include ad.html slot="in_feed" %}{% endif %}
+      {% endfor %}
+    </dl>
+    {% include lead-cta.html type="seller" %}
+  </div>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded",function(){var f=document.getElementById("glossFilter");if(!f)return;f.addEventListener("input",function(){var q=f.value.toLowerCase();document.querySelectorAll("#glossList .term").forEach(function(t){t.style.display=t.textContent.toLowerCase().indexOf(q)>-1?"":"none"})})});
+</script>

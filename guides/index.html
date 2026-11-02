@@ -1,0 +1,45 @@
+---
+layout: page
+title: "Owner Guides: Sell, Rent & Buy By Owner"
+crumb: "Guides"
+eyebrow: "Free owner guides"
+eyebrow_icon: book
+h1: "Owner guides — step-by-step, sourced and kept current"
+lead: "Practical playbooks for selling, renting and buying without a middleman. Written in plain English, fact-checked against official sources, and reviewed regularly."
+description: "Free step-by-step guides for owners: sell your house by owner, rent out property, buy from owners, closing costs, taxes, disclosures, scams and more."
+---
+<section class="section" style="padding-top:28px">
+  <div class="container">
+    <div data-filter-group="#guideGrid" data-filter-search="#guideSearch">
+      <div class="flex-between mb-2">
+        <div class="input-icon" style="flex:1 1 280px;max-width:420px">{% include icon.html name="search" %}<input id="guideSearch" type="search" placeholder="Filter guides…" aria-label="Filter guides"></div>
+        <span class="small muted"><span data-filter-count>{{ site.guides | size }}</span> guides</span>
+      </div>
+      <div class="chips mb-3">
+        <button type="button" class="chip" data-filter="all">All</button>
+        {% for c in site.data.guide_categories %}{% assign n = site.guides | where: "category", c[0] | size %}{% if n > 0 %}{% assign ci = c[1].icon %}<button type="button" class="chip" data-filter="{{ c[0] }}">{% include icon.html name=ci %} {{ c[1].label }} ({{ n }})</button>{% endif %}{% endfor %}
+      </div>
+    </div>
+    {% assign sorted = site.guides | sort: "date" | reverse %}
+    <div class="grid grid-3" id="guideGrid">
+      {% for g in sorted %}{% include guide-card.html guide=g %}{% endfor %}
+    </div>
+    {% include ad.html slot="in_feed" %}
+    <div class="grid grid-2 mt-4">
+      <a class="card hover" href="{{ '/checklist/' | relative_url }}"><div class="card-icon">{% include icon.html name="check-circle" class="ic-lg" %}</div><h3>Interactive FSBO checklist</h3><p>50 steps from prep to closing. Your progress saves automatically.</p></a>
+      <a class="card hover" href="{{ '/glossary/' | relative_url }}"><div class="card-icon violet">{% include icon.html name="tag" class="ic-lg" %}</div><h3>Real estate glossary</h3><p>Escrow, earnest money, contingencies and 60+ more terms in plain English.</p></a>
+    </div>
+  </div>
+</section>
+<section class="section section-soft">
+  <div class="container container-md">
+    <div class="section-head"><span class="eyebrow">{% include icon.html name="shield" %} Editorial standards</span><h2>How we write and check our guides</h2></div>
+    <div class="grid grid-3">
+      <div class="card"><h3>Sourced</h3><p>Every guide lists the official sources it relies on — IRS, EPA, CFPB, FTC, HUD and state agencies.</p></div>
+      <div class="card"><h3>Independent</h3><p>No advertiser or partner can buy or edit our editorial content. Sponsored content is always labeled.</p></div>
+      <div class="card"><h3>Kept current</h3><p>We review guides when laws or market practices change and show the last-updated date on every page.</p></div>
+    </div>
+    <p class="center small muted mt-3">Spot something outdated? <a href="{{ '/contact/' | relative_url }}?topic=correction">Send a correction</a> — we read every one.</p>
+  </div>
+</section>
+{% include newsletter.html id="gh" %}

@@ -1,0 +1,47 @@
+---
+layout: page
+title: "FAQ: Selling, Renting & Buying By Owner"
+crumb: "FAQ"
+eyebrow: "Quick answers"
+eyebrow_icon: info
+h1: "Frequently asked questions"
+lead: "Straight answers about listing, safety, fees, and selling or renting without an agent."
+description: "Answers to common questions about ByOwners.com: free listings, how inquiries work, safety, fees, selling or renting by owner, and how we make money."
+faqs:
+  - q: "Is listing on ByOwners.com free?"
+    a: "Yes. Standard listings are free for 90 days and can be renewed free. Featured ($39/30 days) and Spotlight ($99/60 days) upgrades are optional."
+  - q: "What can I list?"
+    a: "Homes for sale, rentals, vacation homes, land, vehicles, boats and RVs, small businesses and commercial property — as long as you own it or are authorized to list it."
+  - q: "How do buyers contact me?"
+    a: "Through the private message form on your listing. We relay inquiries to you by email so you don't have to publish your phone number or address details."
+  - q: "How long does review take?"
+    a: "Usually 1–2 business days. We check for accuracy, ownership signals, copied photos and fair-housing compliance."
+  - q: "Can I legally sell my house without an agent?"
+    a: "Yes, in every U.S. state. Some states require or customarily use an attorney at closing, and all sellers must follow disclosure laws, including the federal lead-based paint rule for homes built before 1978."
+  - q: "Do I have to pay a buyer's agent?"
+    a: "No law requires it. Buyer-agent pay is negotiated between buyers and their agents; sellers may choose to offer compensation or a closing credit to attract more buyers."
+  - q: "How do I set the right price?"
+    a: "Use recent comparable sales nearby, adjust for differences, and consider an independent appraisal. Our pricing guide and free pricing worksheet walk you through it."
+  - q: "What's a flat-fee MLS listing?"
+    a: "A licensed broker posts your property on the local MLS for a set fee while you handle showings and negotiation. It adds exposure without a full listing commission."
+  - q: "How do I avoid scams?"
+    a: "Meet in person, verify ownership in county records, use a title company or attorney for deposits, verify wiring instructions by phone, and never accept overpayments. See our Trust & Safety center."
+  - q: "Do you hold deposits or handle closings?"
+    a: "No. Use a licensed title company, escrow agent or real estate attorney. We can introduce you to one if you ask."
+  - q: "How does ByOwners.com make money?"
+    a: "Advertising (including Google AdSense), optional listing upgrades, sponsorships, flat-fee advertising from service providers, and reader contributions. Never commissions."
+  - q: "Can I donate to support the site?"
+    a: "Yes — thank you! Visit our Support page. Contributions fund operations, promotion of owner listings, hiring and community prizes. They are not tax-deductible."
+  - q: "How do I enter a contest?"
+    a: "Visit the Contests page, pick a contest, and submit the entry form with a link to your photo, story or video. No purchase is necessary."
+  - q: "How do I remove or update my listing?"
+    a: "Use the contact form with the topic “My listing” and your listing ID, and we'll update or remove it."
+  - q: "Do you sell my personal information?"
+    a: "No. We share your details with a service provider only if you request that service and give consent. See our Privacy Policy for details, including cookies and ads."
+---
+<section class="section" style="padding-top:28px">
+  <div class="container container-sm">
+    <div class="faq">{% for f in page.faqs %}<details{% if forloop.first %} open{% endif %}><summary>{{ f.q }}</summary><div class="ans"><p>{{ f.a }}</p></div></details>{% if forloop.index == 7 %}{% include ad.html slot="in_feed" %}{% endif %}{% endfor %}</div>
+    <div class="card mt-4 center"><h3>Still have a question?</h3><p>We're happy to help.</p><div class="flex mt-2" style="justify-content:center"><a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Contact us</a><a class="btn btn-outline" href="{{ '/guides/' | relative_url }}">Browse guides</a></div></div>
+  </div>
+</section>
