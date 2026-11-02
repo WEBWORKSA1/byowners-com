@@ -1,0 +1,108 @@
+---
+layout: default
+---
+{%- assign gc = site.data.guide_categories[page.category] -%}
+<div class="reading-progress" id="readProgress"></div>
+<header class="article-head">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a> {% include icon.html name="chevron-right" %}
+      <a href="{{ '/guides/' | relative_url }}">Guides</a> {% include icon.html name="chevron-right" %}
+      <a href="{{ '/guides/' | relative_url }}?cat={{ page.category }}">{{ gc.label }}</a>
+    </nav>
+    <span class="badge badge-brand">{% include icon.html name=gc.icon %} {{ gc.label }}</span>
+    <h1 class="mt-1" style="max-width:900px">{{ page.title }}</h1>
+    <p class="lead" style="max-width:820px">{{ page.description }}</p>
+    <div class="byline">
+      <span>{% include icon.html name="users" %} By the {{ site.author }}</span>
+      <span>{% include icon.html name="calendar" %} Updated <time datetime="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">{{ page.last_modified_at | default: page.date | date: '%B %-d, %Y' }}</time></span>
+      <span>{% include icon.html name="clock" %} {{ page.reading_time | default: 8 }} min read</span>
+      <span>{% include icon.html name="check-circle" %} Fact-checked against {{ page.sources | size }} sources</span>
+    </div>
+  </div>
+</header>
+
+<section class="section" style="padding-top:36px">
+  <div class="container with-sidebar">
+    <article class="prose" id="articleBody">
+      {% if page.takeaways %}
+      <div class="takeaways">
+        <h2>{% include icon.html name="zap" %} Key takeaways</h2>
+        <ul>{% for t in page.takeaways %}<li>{% include icon.html name="check" %}<span>{{ t }}</span></li>{% endfor %}</ul>
+      </div>
+      {% endif %}
+
+      {%- assign parts = content | split: '<h2' -%}
+      {%- for part in parts -%}
+        {%- if forloop.first -%}{{ part }}{%- else -%}
+          {%- if forloop.index == 3 -%}{% include ad.html slot="in_article" format="fluid" %}{%- endif -%}
+          {%- if forloop.index == 4 -%}{% include lead-cta.html type=page.cta %}{%- endif -%}
+          <h2{{ part }}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {% if page.faqs %}
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq">
+        {% for f in page.faqs %}
+        <details{% if forloop.first %} open{% endif %}><summary>{{ f.q }}</summary><div class="ans"><p>{{ f.a }}</p></div></details>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% assign vids = site.data.videos.items | where: "category", page.category %}
+      {% if vids.size > 0 %}
+      <h2 id="watch">Watch: {{ gc.label | downcase }} explained</h2>
+      <div class="video-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+        {% for v in vids limit: 2 %}{% include video-card.html video=v %}{% endfor %}
+      </div>
+      <p class="tiny muted">Videos are produced by third parties and embedded from YouTube for educational purposes. Views expressed are the creators' own.</p>
+      {% endif %}
+
+      {% if page.sources %}
+      <h2 id="sources">Sources</h2>
+      <ol class="sources">
+        {% for s in page.sources %}<li><a href="{{ s.url }}" target="_blank" rel="noopener nofollow">{{ s.name }}</a></li>{% endfor %}
+      </ol>
+      {% endif %}
+
+      <div class="disclaimer-box mt-3">{% include icon.html name="info" %} <strong>Educational content, not legal, tax or financial advice.</strong> Laws and costs vary by state and change over time. Confirm details with a licensed professional in your area before you act. <a href="{{ '/disclaimer/' | relative_url }}">Read our disclaimer</a>.</div>
+
+      <div class="flex-between mt-3 no-print">
+        <div class="share-row">
+          <button class="btn btn-outline btn-sm" data-share>{% include icon.html name="share" %} Share</button>
+          <button class="btn btn-outline btn-sm" onclick="window.print()">{% include icon.html name="printer" %} Print</button>
+          <button class="btn btn-outline btn-sm" data-save-guide="{{ page.url }}" data-title="{{ page.title | escape }}">{% include icon.html name="bookmark" %} Save</button>
+        </div>
+        <a class="small" href="{{ '/contact/' | relative_url }}?topic=correction&amp;page={{ page.url | url_encode }}">Suggest a correction</a>
+      </div>
+    </article>
+
+    <aside class="no-print">
+      <div class="sticky-side">
+        <nav class="toc widget" id="toc" aria-label="On this page"><strong>On this page</strong><ol></ol></nav>
+        {% assign c = site.data.ctas[page.cta] | default: site.data.ctas.seller %}
+        <div class="widget widget-brand">
+          <h3>{% include icon.html name=c.icon %} {{ c.title }}</h3>
+          <p>{{ c.text }}</p>
+          <a class="btn btn-white btn-block" href="{{ '/get-started/' | relative_url }}?goal={{ c.goal }}">{{ c.button }}</a>
+        </div>
+        {% include ad.html slot="sidebar" %}
+        <div class="widget">
+          <h3>{% include icon.html name="calc" %} Free calculators</h3>
+          <ul>{% for t in site.data.tools limit: 5 %}<li><a href="{{ '/tools/' | append: t.slug | append: '/' | relative_url }}">{{ t.title }}</a></li>{% endfor %}</ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+{% assign related = site.guides | where: "category", page.category | where_exp: "g", "g.url != page.url" %}
+{% if related.size < 3 %}{% assign related = site.guides | where: "featured", true | where_exp: "g", "g.url != page.url" %}{% endif %}
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-head left"><span class="eyebrow">{% include icon.html name="book" %} Keep learning</span><h2>Related guides</h2></div>
+    <div class="grid grid-3">{% for g in related limit: 3 %}{% include guide-card.html guide=g %}{% endfor %}</div>
+  </div>
+</section>
+{% include newsletter.html id="g" %}
