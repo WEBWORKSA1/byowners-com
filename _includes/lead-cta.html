@@ -1,0 +1,9 @@
+{%- assign key = include.type | default: 'seller' -%}
+{%- assign c = site.data.ctas[key] | default: site.data.ctas.seller -%}
+<aside class="inline-cta no-print" aria-label="{{ c.title }}">
+  <div>
+    <h3>{{ c.title }}</h3>
+    <p>{{ c.text }}</p>
+  </div>
+  <a class="btn btn-white btn-lg" href="{{ '/get-started/' | relative_url }}?goal={{ c.goal }}" data-track="cta-{{ key }}">{{ c.button }} {% include icon.html name="arrow-right" %}</a>
+</aside>

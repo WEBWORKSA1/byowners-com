@@ -1,0 +1,184 @@
+{%- assign wid = include.id | default: "ownerPlan" -%}
+<form class="wizard" id="{{ wid }}" data-wizard data-form="owner-plan" novalidate>
+  <div class="wizard-top"><span data-step-label>Step 1</span><span>{% include icon.html name="clock" %} Takes about 60 seconds</span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- 1. Goal -->
+  <div class="step active">
+    <h3>What would you like to do?</h3>
+    <p class="sub">Pick one — we'll tailor your free plan to it.</p>
+    <div class="options cols-3" data-auto role="radiogroup" aria-label="Your goal">
+      <div class="option"><input type="radio" id="{{ wid }}-g1" name="goal" value="sell" required><label for="{{ wid }}-g1">{% include icon.html name="home" %}Sell my home<small>Keep the commission</small></label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-g2" name="goal" value="rent-out"><label for="{{ wid }}-g2">{% include icon.html name="key" %}Rent out my place<small>Find great tenants</small></label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-g3" name="goal" value="buy"><label for="{{ wid }}-g3">{% include icon.html name="bag" %}Buy from an owner<small>Get first-look alerts</small></label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-g4" name="goal" value="rent-find"><label for="{{ wid }}-g4">{% include icon.html name="search" %}Find a rental<small>Direct from landlords</small></label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-g5" name="goal" value="sell-land"><label for="{{ wid }}-g5">{% include icon.html name="land" %}Sell land<small>Lots, acreage, farms</small></label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-g6" name="goal" value="sell-vehicle"><label for="{{ wid }}-g6">{% include icon.html name="car" %}Sell a vehicle<small>Car, RV, boat</small></label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-g7" name="goal" value="sell-business"><label for="{{ wid }}-g7">{% include icon.html name="briefcase" %}Sell a business<small>Confidential</small></label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-g8" name="goal" value="find-pro"><label for="{{ wid }}-g8">{% include icon.html name="handshake" %}Find a pro<small>MLS, attorney, inspector</small></label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-g9" name="goal" value="pro"><label for="{{ wid }}-g9">{% include icon.html name="star" %}I'm a pro<small>Join the Pro Network</small></label></div>
+    </div>
+  </div>
+
+  <!-- 2a. Property type -->
+  <div class="step" data-if="goal=sell|rent-out|buy|rent-find">
+    <h3 data-goal-text='{"sell":"What kind of property are you selling?","rent-out":"What kind of property are you renting out?","buy":"What kind of home are you looking for?","rent-find":"What kind of rental do you need?","default":"What kind of property?"}'>What kind of property?</h3>
+    <p class="sub">This helps us match the right checklist and pros.</p>
+    <div class="options cols-3" data-auto>
+      <div class="option"><input type="radio" id="{{ wid }}-p1" name="property_type" value="Single-family home" required><label for="{{ wid }}-p1">{% include icon.html name="home" %}Single-family</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-p2" name="property_type" value="Condo / townhome"><label for="{{ wid }}-p2">{% include icon.html name="building" %}Condo / townhome</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-p3" name="property_type" value="Multi-family (2–4 units)"><label for="{{ wid }}-p3">{% include icon.html name="grid" %}Multi-family</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-p4" name="property_type" value="Manufactured / mobile"><label for="{{ wid }}-p4">{% include icon.html name="home" %}Manufactured</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-p5" name="property_type" value="Vacation / short-term"><label for="{{ wid }}-p5">{% include icon.html name="sun" %}Vacation home</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-p6" name="property_type" value="Commercial"><label for="{{ wid }}-p6">{% include icon.html name="briefcase" %}Commercial</label></div>
+    </div>
+  </div>
+  <!-- 2b. Vehicle -->
+  <div class="step" data-if="goal=sell-vehicle">
+    <h3>What are you selling?</h3>
+    <div class="options cols-3" data-auto>
+      <div class="option"><input type="radio" id="{{ wid }}-v1" name="vehicle_type" value="Car / SUV / truck" required><label for="{{ wid }}-v1">{% include icon.html name="car" %}Car, SUV or truck</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-v2" name="vehicle_type" value="Motorcycle"><label for="{{ wid }}-v2">{% include icon.html name="zap" %}Motorcycle</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-v3" name="vehicle_type" value="RV / camper"><label for="{{ wid }}-v3">{% include icon.html name="home" %}RV or camper</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-v4" name="vehicle_type" value="Boat"><label for="{{ wid }}-v4">{% include icon.html name="anchor" %}Boat</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-v5" name="vehicle_type" value="Equipment / other"><label for="{{ wid }}-v5">{% include icon.html name="tool" %}Equipment / other</label></div>
+    </div>
+  </div>
+  <!-- 2c. Business -->
+  <div class="step" data-if="goal=sell-business">
+    <h3>What type of business?</h3>
+    <div class="options cols-3" data-auto>
+      <div class="option"><input type="radio" id="{{ wid }}-b1" name="business_type" value="Service" required><label for="{{ wid }}-b1">{% include icon.html name="tool" %}Service</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-b2" name="business_type" value="Retail"><label for="{{ wid }}-b2">{% include icon.html name="bag" %}Retail</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-b3" name="business_type" value="Food & beverage"><label for="{{ wid }}-b3">{% include icon.html name="coffee" %}Food &amp; beverage</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-b4" name="business_type" value="Online / e-commerce"><label for="{{ wid }}-b4">{% include icon.html name="globe" %}Online</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-b5" name="business_type" value="Manufacturing / trades"><label for="{{ wid }}-b5">{% include icon.html name="building" %}Manufacturing</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-b6" name="business_type" value="Other"><label for="{{ wid }}-b6">{% include icon.html name="briefcase" %}Other</label></div>
+    </div>
+  </div>
+  <!-- 2d. Pro profession -->
+  <div class="step" data-if="goal=pro">
+    <h3>What's your profession?</h3>
+    <div class="options cols-3" data-auto>
+      {% for p in site.data.pros %}
+      <div class="option"><input type="radio" id="{{ wid }}-pr{{ forloop.index }}" name="profession" value="{{ p.title }}"{% if forloop.first %} required{% endif %}><label for="{{ wid }}-pr{{ forloop.index }}">{% include icon.html name=p.icon %}{{ p.title }}</label></div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- 2e. Help needed (find a pro) -->
+  <div class="step" data-if="goal=find-pro">
+    <h3>Which pros do you need?</h3>
+    <p class="sub">Choose all that apply.</p>
+    <div class="options cols-3">
+      {% for p in site.data.pros %}
+      <div class="option"><input type="checkbox" id="{{ wid }}-h{{ forloop.index }}" name="help" value="{{ p.title }}"><label for="{{ wid }}-h{{ forloop.index }}">{% include icon.html name=p.icon %}{{ p.title }}</label></div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- 3. Location -->
+  <div class="step">
+    <h3 data-goal-text='{"buy":"Where do you want to buy?","rent-find":"Where do you want to live?","pro":"Where do you serve clients?","default":"Where is it located?"}'>Where is it located?</h3>
+    <p class="sub">ZIP code is enough. We never publish your exact address without your OK.</p>
+    <div class="form-row">
+      <div class="field"><label for="{{ wid }}-zip">ZIP code</label><input id="{{ wid }}-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" title="Enter a 5-digit ZIP code" required></div>
+      <div class="field"><label for="{{ wid }}-city">City <span class="muted">(optional)</span></label><input id="{{ wid }}-city" name="city" type="text" autocomplete="address-level2"></div>
+    </div>
+    <div class="step-inner" data-if-inline="sell">
+      <div class="field"><label for="{{ wid }}-addr">Street address <span class="muted">(optional — helps with your pricing worksheet)</span></label><input id="{{ wid }}-addr" name="address" type="text" autocomplete="street-address"></div>
+    </div>
+  </div>
+
+  <!-- 4. Timeline -->
+  <div class="step">
+    <h3 data-goal-text='{"buy":"When do you want to buy?","rent-find":"When do you need to move?","pro":"How soon can you take new clients?","default":"What is your timeline?"}'>What is your timeline?</h3>
+    <div class="options cols-1" data-auto>
+      <div class="option"><input type="radio" id="{{ wid }}-t1" name="timeline" value="ASAP (0–30 days)" required><label for="{{ wid }}-t1">{% include icon.html name="zap" %}ASAP (0–30 days)</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-t2" name="timeline" value="1–3 months"><label for="{{ wid }}-t2">{% include icon.html name="calendar" %}1–3 months</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-t3" name="timeline" value="3–6 months"><label for="{{ wid }}-t3">{% include icon.html name="calendar" %}3–6 months</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-t4" name="timeline" value="6–12 months"><label for="{{ wid }}-t4">{% include icon.html name="clock" %}6–12 months</label></div>
+      <div class="option"><input type="radio" id="{{ wid }}-t5" name="timeline" value="Just researching"><label for="{{ wid }}-t5">{% include icon.html name="book" %}Just researching</label></div>
+    </div>
+  </div>
+
+  <!-- 5a. Seller details -->
+  <div class="step" data-if="goal=sell|sell-land|sell-vehicle|sell-business">
+    <h3>A little more detail</h3>
+    <p class="sub">Rough numbers are fine. This shapes your pricing worksheet.</p>
+    <div class="field"><label for="{{ wid }}-val">Estimated value</label>
+      <select id="{{ wid }}-val" name="value_range" required><option value="">Choose a range…</option><option>Under $150k</option><option>$150k–$300k</option><option>$300k–$500k</option><option>$500k–$750k</option><option>$750k–$1M</option><option>$1M+</option><option>Not sure</option></select></div>
+    <span class="label">What help would be useful? <span class="muted">(optional)</span></span>
+    <div class="options cols-2 mt-1">
+      <div class="option"><input type="checkbox" id="{{ wid }}-s1" name="help" value="Free pricing worksheet (valuation)"><label for="{{ wid }}-s1">Free pricing worksheet</label></div>
+      <div class="option"><input type="checkbox" id="{{ wid }}-s2" name="help" value="Flat-fee MLS listing"><label for="{{ wid }}-s2">Flat-fee MLS listing</label></div>
+      <div class="option"><input type="checkbox" id="{{ wid }}-s3" name="help" value="Attorney / contract help"><label for="{{ wid }}-s3">Attorney / contract help</label></div>
+      <div class="option"><input type="checkbox" id="{{ wid }}-s4" name="help" value="Cash offer from investors"><label for="{{ wid }}-s4">Cash offer comparison</label></div>
+      <div class="option"><input type="checkbox" id="{{ wid }}-s5" name="help" value="Photos & marketing"><label for="{{ wid }}-s5">Photos &amp; marketing</label></div>
+      <div class="option"><input type="checkbox" id="{{ wid }}-s6" name="help" value="Free listing only"><label for="{{ wid }}-s6">Just the free listing</label></div>
+    </div>
+  </div>
+  <!-- 5b. Landlord details -->
+  <div class="step" data-if="goal=rent-out">
+    <h3>About your rental</h3>
+    <div class="form-row">
+      <div class="field"><label for="{{ wid }}-rent">Expected monthly rent</label><select id="{{ wid }}-rent" name="value_range" required><option value="">Choose…</option><option>Under $1,000</option><option>$1,000–$1,750</option><option>$1,750–$2,500</option><option>$2,500–$4,000</option><option>$4,000+</option><option>Not sure</option></select></div>
+      <div class="field"><label for="{{ wid }}-beds">Bedrooms</label><select id="{{ wid }}-beds" name="beds"><option>Studio</option><option>1</option><option selected>2</option><option>3</option><option>4+</option></select></div>
+    </div>
+    <span class="label">What help would be useful? <span class="muted">(optional)</span></span>
+    <div class="options cols-2 mt-1">
+      <div class="option"><input type="checkbox" id="{{ wid }}-l1" name="help" value="Rent pricing worksheet (valuation)"><label for="{{ wid }}-l1">Rent pricing worksheet</label></div>
+      <div class="option"><input type="checkbox" id="{{ wid }}-l2" name="help" value="Tenant screening"><label for="{{ wid }}-l2">Tenant screening</label></div>
+      <div class="option"><input type="checkbox" id="{{ wid }}-l3" name="help" value="Lease essentials"><label for="{{ wid }}-l3">Lease essentials</label></div>
+      <div class="option"><input type="checkbox" id="{{ wid }}-l4" name="help" value="Property manager quotes"><label for="{{ wid }}-l4">Property manager quotes</label></div>
+    </div>
+  </div>
+  <!-- 5c. Buyer / renter details -->
+  <div class="step" data-if="goal=buy|rent-find">
+    <h3 data-goal-text='{"buy":"What is your budget?","rent-find":"What is your monthly budget?","default":"Budget"}'>What is your budget?</h3>
+    <div class="form-row">
+      <div class="field"><label for="{{ wid }}-budget">Budget (max)</label><input id="{{ wid }}-budget" name="budget" type="text" inputmode="numeric" placeholder="e.g. 350,000 or 1,800/mo" required></div>
+      <div class="field"><label for="{{ wid }}-mbeds">Min. bedrooms</label><select id="{{ wid }}-mbeds" name="beds"><option>Any</option><option>1+</option><option selected>2+</option><option>3+</option><option>4+</option></select></div>
+    </div>
+    <div data-if-inline="buy">
+      <div class="field"><label for="{{ wid }}-fin">Financing</label><select id="{{ wid }}-fin" name="financing"><option>Pre-approved already</option><option value="Need pre-approval">Need a pre-approval</option><option>Paying cash</option><option>Interested in owner financing</option></select></div>
+    </div>
+  </div>
+  <!-- 5d. Pro details -->
+  <div class="step" data-if="goal=pro">
+    <h3>How would you like to work with us?</h3>
+    <div class="field"><label for="{{ wid }}-co">Company / license name</label><input id="{{ wid }}-co" name="company" type="text" required></div>
+    <div class="options cols-2 mt-1">
+      <div class="option"><input type="checkbox" id="{{ wid }}-w1" name="interest" value="Directory listing"><label for="{{ wid }}-w1">Directory listing</label></div>
+      <div class="option"><input type="checkbox" id="{{ wid }}-w2" name="interest" value="Sponsored placement"><label for="{{ wid }}-w2">Sponsored placement</label></div>
+      <div class="option"><input type="checkbox" id="{{ wid }}-w3" name="interest" value="Guide sponsorship"><label for="{{ wid }}-w3">Guide sponsorship</label></div>
+      <div class="option"><input type="checkbox" id="{{ wid }}-w4" name="interest" value="Contest sponsorship"><label for="{{ wid }}-w4">Contest sponsorship</label></div>
+    </div>
+  </div>
+
+  <!-- 6. Contact -->
+  <div class="step">
+    <h3>Where should we send your free plan?</h3>
+    <p class="sub">A real person reviews every request. No spam, no pressure, no obligation.</p>
+    <div class="form-row">
+      <div class="field"><label for="{{ wid }}-fn">First name</label><input id="{{ wid }}-fn" name="first_name" type="text" autocomplete="given-name" required></div>
+      <div class="field"><label for="{{ wid }}-ln">Last name</label><input id="{{ wid }}-ln" name="last_name" type="text" autocomplete="family-name"></div>
+    </div>
+    <div class="field"><label for="{{ wid }}-em">Email</label><input id="{{ wid }}-em" name="email" type="email" autocomplete="email" required><span class="hint">{% include icon.html name="lock" %} Your email is never sold or published.</span></div>
+    <div class="field"><label for="{{ wid }}-ph">Phone <span class="muted">(optional — for faster help)</span></label><input id="{{ wid }}-ph" name="phone" type="tel" autocomplete="tel"></div>
+    <label class="check"><input type="checkbox" name="agree" value="yes" required> <span>I agree to the <a href="{{ '/terms/' | relative_url }}" target="_blank">Terms</a> and <a href="{{ '/privacy/' | relative_url }}" target="_blank">Privacy Policy</a> and want ByOwners.com to contact me about this request.</span></label>
+    <label class="check"><input type="checkbox" name="partner_consent" value="yes"> <span class="consent">Optional: I also agree that ByOwners.com and the specific service provider(s) I asked for may contact me by email, phone or text (including automated texts) about my request. Consent is not a condition of any purchase. Msg &amp; data rates may apply; reply STOP to opt out.</span></label>
+    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  </div>
+
+  <div class="wizard-nav">
+    <button type="button" class="btn btn-ghost" data-back>{% include icon.html name="arrow-left" %} Back</button>
+    <button type="button" class="btn btn-primary btn-lg" data-next>Continue {% include icon.html name="arrow-right" %}</button>
+    <button type="submit" class="btn btn-accent btn-lg hide" data-submit>Get my free plan {% include icon.html name="arrow-right" %}</button>
+  </div>
+  <div class="wizard-trust">
+    <span>{% include icon.html name="check-circle" %} 100% free for owners</span>
+    <span>{% include icon.html name="lock" %} Private &amp; secure (HTTPS)</span>
+    <span>{% include icon.html name="users" %} Reviewed by a real person</span>
+    <span>{% include icon.html name="x" %} No obligation</span>
+  </div>
+</form>
