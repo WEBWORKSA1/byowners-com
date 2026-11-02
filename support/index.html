@@ -1,0 +1,75 @@
+---
+layout: page
+title: "Support ByOwners.com — Donate"
+crumb: "Support us"
+eyebrow: "Reader-supported"
+eyebrow_icon: heart
+h1: "Keep ByOwners free for every owner"
+lead: "No commissions, no paywalls. Your support funds hosting and security, promotion for owner listings, new hires, and prizes for our community contests."
+description: "Support ByOwners.com with a one-time or monthly contribution. Funds go to operations, promotion of owner listings, hiring talent, and community contests and prizes."
+---
+<section class="section" style="padding-top:28px">
+  <div class="container split" style="align-items:start">
+    <div class="card" style="box-shadow:var(--shadow-lg)">
+      <h2>Choose an amount</h2>
+      <div class="tiers mt-2" role="group" aria-label="Contribution amount">
+        {% for t in site.data.support_tiers %}
+        <button type="button" class="tier{% if t.amount == 25 %} active{% endif %}" data-tier="{{ t.amount }}" aria-pressed="{% if t.amount == 25 %}true{% else %}false{% endif %}"><div class="amt">${{ t.amount }}</div><div class="nm">{{ t.name }}</div><div class="ds">{{ t.desc }}</div></button>
+        {% endfor %}
+      </div>
+      <div class="form-row mt-3">
+        <div class="field"><label for="donateAmount">Amount (USD)</label><input id="donateAmount" type="number" min="1" step="1" value="25"></div>
+        <div class="field"><label for="donatePurpose">Put it toward</label><select id="donatePurpose"><option>General support</option><option>Operations &amp; hosting</option><option>Promotion &amp; marketing</option><option>Hiring talent</option><option>Contests &amp; prizes</option></select></div>
+      </div>
+      <button class="btn btn-accent btn-lg btn-block" data-donate="paypal">{% include icon.html name="heart" %} Contribute with PayPal or card</button>
+      <div class="flex mt-2" style="justify-content:center">
+        <a class="btn btn-outline btn-sm" href="#" data-donate="buyMeACoffee" data-rail="buyMeACoffee">{% include icon.html name="coffee" %} Buy Me a Coffee</a>
+        <a class="btn btn-outline btn-sm" href="#" data-donate="kofi" data-rail="kofi">{% include icon.html name="coffee" %} Ko-fi</a>
+        <a class="btn btn-outline btn-sm" href="#" data-donate="stripe" data-rail="stripe">{% include icon.html name="dollar" %} Card (Stripe)</a>
+        <a class="btn btn-outline btn-sm" href="#" data-donate="patreon" data-rail="patreon">{% include icon.html name="star" %} Monthly on Patreon</a>
+      </div>
+      <p class="tiny muted mt-2 center">Payments are processed securely by the provider; we never see your card details. ByOwners.com is not a charity, so contributions are not tax-deductible.</p>
+    </div>
+    <div>
+      <h2>Where your support goes</h2>
+      <div class="alloc mt-2">
+        {% for a in site.data.allocation %}
+        <div class="alloc-row"><div class="flex-between"><span class="flex">{% include icon.html name=a.icon %} {{ a.label }}</span><b>{{ a.pct }}%</b></div><div class="bar"><span style="width:{{ a.pct }}%"></span></div></div>
+        {% endfor %}
+      </div>
+      <p class="small muted mt-2">Target allocation for contributions. We publish a short update on how funds are used as we grow.</p>
+      <div class="grid grid-2 mt-3">
+        <div class="card"><h3>{% include icon.html name="award" %} Fund a prize</h3><p>Choose “Contests &amp; prizes” to grow the next round's prize pool.</p></div>
+        <div class="card"><h3>{% include icon.html name="users" %} Fund a hire</h3><p>Choose “Hiring talent” to help us add writers and creators.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section lead-section">
+  <div class="container split" style="align-items:start">
+    <div>
+      <h2>Other ways to support</h2>
+      <ul class="benefit-list">
+        <li>{% include icon.html name="check" %}<div><strong>Corporate sponsorship</strong><span>Sponsor a guide category, a calculator or a contest round. <a href="{{ '/advertise/' | relative_url }}">See options</a>.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Pledge or in-kind support</strong><span>Offer services, software, prizes or a larger pledge — use the form.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Spread the word</strong><span>Share a guide with someone selling or renting by owner.</span></div></li>
+      </ul>
+      <button class="btn btn-outline" data-share>{% include icon.html name="share" %} Share ByOwners.com</button>
+    </div>
+    <form class="card" data-form="pledge" data-subject="Support pledge / sponsorship" novalidate>
+      <h3>Pledge, sponsor or offer in-kind support</h3>
+      <div class="form-row">
+        <div class="field"><label for="pl-n">Name / organization</label><input id="pl-n" name="name" required></div>
+        <div class="field"><label for="pl-e">Email</label><input id="pl-e" name="email" type="email" required autocomplete="email"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="pl-t">Type</label><select id="pl-t" name="type"><option>One-time pledge</option><option>Monthly pledge</option><option>Contest prize sponsorship</option><option>Corporate sponsorship</option><option>In-kind (services, software, prizes)</option></select></div>
+        <div class="field"><label for="pl-a">Amount or value (USD)</label><input id="pl-a" name="amount" inputmode="numeric"></div>
+      </div>
+      <div class="field"><label for="pl-m">Message</label><textarea id="pl-m" name="message" rows="3"></textarea></div>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary btn-block" type="submit">Send</button>
+    </form>
+  </div>
+</section>
