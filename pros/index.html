@@ -1,0 +1,56 @@
+---
+layout: page
+title: "Find a Pro: Flat-Fee MLS, Attorneys, Inspectors & More"
+crumb: "Find a pro"
+eyebrow: "The ByOwners Pro Network"
+eyebrow_icon: handshake
+h1: "Expert help — only the pieces you need"
+lead: "Selling by owner doesn't mean doing everything alone. Tell us what you need and we'll introduce vetted, licensed pros who work with owners at flat or transparent prices."
+description: "Find flat-fee MLS brokers, real estate attorneys, title and escrow companies, inspectors, appraisers, photographers, lenders and property managers who work with owners."
+---
+<section class="section" style="padding-top:28px">
+  <div class="container">
+    <div class="grid grid-4">
+      {% for p in site.data.pros %}
+      <a class="card hover" href="{{ '/get-started/' | relative_url }}?goal=find-pro&amp;help={{ p.title | url_encode }}"><div class="card-icon">{% include icon.html name=p.icon class="ic-lg" %}</div><h3>{{ p.title }}</h3><p>{{ p.desc }}</p><span class="card-link">Get matched {% include icon.html name="arrow-right" %}</span></a>
+      {% endfor %}
+    </div>
+    <div class="notice-brand mt-3 small">{% include icon.html name="info" %} <strong>How matching works:</strong> you choose the services; we introduce providers in your area. Pros pay ByOwners a flat advertising or directory fee — never a cut of your sale — and you pay them directly. Always verify licenses with your state regulator before hiring.</div>
+  </div>
+</section>
+
+<section class="section lead-section" id="join">
+  <div class="container split" style="align-items:start">
+    <div>
+      <span class="eyebrow">{% include icon.html name="star" %} For professionals</span>
+      <h2>Join the ByOwners Pro Network</h2>
+      <p class="lead">Reach owners at the exact moment they need a flat-fee listing, a contract review, an inspection or a pre-approval.</p>
+      <ul class="benefit-list">
+        <li>{% include icon.html name="check" %}<div><strong>Directory profile</strong><span>Your services, service area, licenses and transparent pricing.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Sponsored placement</strong><span>Category and guide sponsorships, clearly labeled.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Founding-partner pricing</strong><span>Early partners lock in introductory flat monthly rates.</span></div></li>
+      </ul>
+      <p class="small muted">We work with licensed, insured providers and follow advertising and referral rules (including RESPA for settlement services): fees are flat and for advertising, not per-referral or per-closing.</p>
+    </div>
+    <form class="card" data-form="pro-signup" data-subject="Pro Network application" novalidate>
+      <h3>Apply as a pro</h3>
+      <div class="form-row">
+        <div class="field"><label for="pn-n">Your name</label><input id="pn-n" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="pn-c">Company</label><input id="pn-c" name="company" required autocomplete="organization"></div>
+      </div>
+      <div class="field"><label for="pn-p">Profession</label><select id="pn-p" name="profession" required><option value="">Choose…</option>{% for p in site.data.pros %}<option>{{ p.title }}</option>{% endfor %}<option>Other</option></select></div>
+      <div class="form-row">
+        <div class="field"><label for="pn-e">Email</label><input id="pn-e" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="pn-ph">Phone</label><input id="pn-ph" name="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="pn-a">Service area (cities/states)</label><input id="pn-a" name="service_area" required></div>
+        <div class="field"><label for="pn-l">License # (if applicable)</label><input id="pn-l" name="license"></div>
+      </div>
+      <div class="field"><label for="pn-w">Website</label><input id="pn-w" name="website" type="url" placeholder="https://"></div>
+      <label class="check"><input type="checkbox" name="agree" value="yes" required> <span>I'm licensed/insured as required in my state and agree to the <a href="{{ '/terms/' | relative_url }}">Terms</a>.</span></label>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary btn-block" type="submit">Apply to join</button>
+    </form>
+  </div>
+</section>
