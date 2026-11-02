@@ -1,0 +1,43 @@
+- group: "Selling & Taxes"
+  icon: home
+  items:
+    - { name: "IRS Publication 523 — Selling Your Home", url: "https://www.irs.gov/publications/p523", note: "Home-sale gain exclusion, basis and reporting rules." }
+    - { name: "EPA — Lead-Based Paint Disclosure Rule", url: "https://www.epa.gov/lead/real-estate-disclosure", note: "Federal disclosure duties for homes built before 1978." }
+    - { name: "Freddie Mac Primary Mortgage Market Survey", url: "https://www.freddiemac.com/pmms", note: "Weekly average mortgage rates buyers are seeing." }
+    - { name: "NAR Research & Statistics", url: "https://www.nar.realtor/research-and-statistics", note: "National existing-home sales and seller/buyer profiles." }
+    - { name: "ARELLO — Real Estate Regulators Directory", url: "https://www.arello.org/", note: "Find your state's real estate commission and rules." }
+- group: "Buying & Financing"
+  icon: bag
+  items:
+    - { name: "CFPB — Buying a House", url: "https://www.consumerfinance.gov/owning-a-home/", note: "Step-by-step tools from the Consumer Financial Protection Bureau." }
+    - { name: "CFPB — Closing Disclosure Explainer", url: "https://www.consumerfinance.gov/owning-a-home/closing-disclosure/", note: "Line-by-line walkthrough of your closing documents." }
+    - { name: "FRED — 30-Year Fixed Mortgage Average", url: "https://fred.stlouisfed.org/series/MORTGAGE30US", note: "Historical rate chart from the St. Louis Fed." }
+    - { name: "FEMA Flood Map Service Center", url: "https://msc.fema.gov/portal/home", note: "Check flood zones before you buy or price land." }
+    - { name: "EPA — Radon", url: "https://www.epa.gov/radon", note: "Testing guidance and action levels." }
+- group: "Renting & Landlords"
+  icon: key
+  items:
+    - { name: "IRS Publication 527 — Residential Rental Property", url: "https://www.irs.gov/publications/p527", note: "Rental income, expenses, depreciation and personal-use rules." }
+    - { name: "FTC — Using Consumer Reports: What Landlords Need to Know", url: "https://www.ftc.gov/business-guidance/resources/using-consumer-reports-what-landlords-need-know", note: "FCRA duties when you screen applicants." }
+    - { name: "HUD — Fair Housing & Equal Opportunity", url: "https://www.hud.gov/program_offices/fair_housing_equal_opp", note: "Federal fair housing rules and complaint process." }
+    - { name: "U.S. DOJ — The Fair Housing Act", url: "https://www.justice.gov/crt/fair-housing-act-1", note: "What the Act covers and who enforces it." }
+- group: "Vehicles & Business"
+  icon: car
+  items:
+    - { name: "NHTSA Recalls Lookup", url: "https://www.nhtsa.gov/recalls", note: "Check open safety recalls by VIN before you buy or sell." }
+    - { name: "NMVTIS Vehicle History (DOJ)", url: "https://vehiclehistory.bja.ojp.gov/", note: "Official consumer access to title-brand and salvage data." }
+    - { name: "U.S. Small Business Administration", url: "https://www.sba.gov/", note: "Business valuation, 7(a) loans and transition resources." }
+    - { name: "SBA 7(a) Loans", url: "https://www.sba.gov/funding-programs/loans/7a-loans", note: "The most common financing route for small-business buyers." }
+- group: "Safety & Fraud"
+  icon: shield
+  items:
+    - { name: "FTC ReportFraud", url: "https://reportfraud.ftc.gov/", note: "Report rental, overpayment and imposter scams." }
+    - { name: "FBI Internet Crime Complaint Center (IC3)", url: "https://www.ic3.gov/", note: "Report wire and real-estate closing fraud fast." }
+    - { name: "FTC Consumer Advice", url: "https://consumer.ftc.gov/", note: "Plain-English scam alerts and recovery steps." }
+    - { name: "USA.gov — State Consumer Protection Offices", url: "https://www.usa.gov/state-consumer", note: "Find your state attorney general's consumer office." }
+- group: "Moving & Data"
+  icon: globe
+  items:
+    - { name: "USPS Official Change of Address", url: "https://moversguide.usps.com/", note: "Forward mail when you close or move out." }
+    - { name: "U.S. Census QuickFacts", url: "https://www.census.gov/quickfacts/", note: "Local income, housing and population data for pricing and rent research." }
+    - { name: "ENERGY STAR", url: "https://www.energystar.gov/", note: "Efficiency upgrades that help listings and lower operating costs." }

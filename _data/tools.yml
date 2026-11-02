@@ -1,0 +1,8 @@
+- { slug: commission-savings-calculator, title: "Commission Savings Calculator", icon: percent, color: "", desc: "See exactly how much you keep by selling by owner vs. a traditional listing." }
+- { slug: seller-net-proceeds-calculator, title: "Seller Net Proceeds Calculator", icon: dollar, color: warm, desc: "Estimate the cash you walk away with after payoff, closing costs and concessions." }
+- { slug: mortgage-calculator, title: "Mortgage Calculator", icon: calc, color: sky, desc: "Monthly payment with taxes, insurance, HOA and PMI — plus a full amortization schedule." }
+- { slug: home-affordability-calculator, title: "Home Affordability Calculator", icon: home, color: violet, desc: "How much house your income supports using lender-style 28/36 debt ratios." }
+- { slug: rental-property-calculator, title: "Rental Property Calculator", icon: key, color: "", desc: "Cash flow, cap rate and cash-on-cash return for a rental before you buy or list it." }
+- { slug: rent-vs-buy-calculator, title: "Rent vs. Buy Calculator", icon: scale, color: rose, desc: "Compare the true cost of renting and buying over the years you plan to stay." }
+- { slug: closing-cost-estimator, title: "Closing Cost Estimator", icon: file, color: warm, desc: "Line-by-line closing cost estimate for buyers and sellers." }
+- { slug: fsbo-readiness-quiz, title: "Sell-By-Owner Readiness Quiz", icon: target, color: violet, desc: "8 questions that tell you whether FSBO, flat-fee MLS or an agent fits you best." }

@@ -1,0 +1,5 @@
+<div class="range-field">
+  <div class="top"><label for="f-{{ include.k }}">{{ include.label }}{% if include.unit %} <span class="muted">({{ include.unit }})</span>{% endif %}</label><input type="number" id="f-{{ include.k }}" data-k="{{ include.k }}" value="{{ include.value }}" min="{{ include.min }}" max="{{ include.max }}" step="{{ include.step | default: 1 }}" inputmode="decimal"></div>
+  <input type="range" data-r="{{ include.k }}" min="{{ include.min }}" max="{{ include.max }}" step="{{ include.step | default: 1 }}" value="{{ include.value }}" aria-label="{{ include.label }}">
+  {% if include.hint %}<span class="hint tiny muted">{{ include.hint }}</span>{% endif %}
+</div>
