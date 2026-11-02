@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="{{ site.lang }}" class="no-js">
+<head>
+{% include head.html %}
+</head>
+<body class="{{ page.body_class }}{% unless page.hide_mobile_cta %} has-mobile-cta{% endunless %}">
+{% include icons.html %}
+{% include header.html %}
+<main id="main">
+{{ content }}
+</main>
+{% include footer.html %}
+{% include global-ui.html %}
+<script>window.BO_BASE = "{{ site.baseurl }}"; window.BO_RATES = {{ site.data.rates | jsonify }};</script>
+<script src="{{ '/assets/js/config.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}"></script>
+<script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+{%- assign xext = page.extra_ext_js | default: layout.extra_ext_js -%}
+{%- for s in xext %}
+<script src="{{ s }}" crossorigin="anonymous" defer></script>
+{%- endfor %}
+{%- assign xjs = page.extra_js | default: layout.extra_js -%}
+{%- for s in xjs %}
+<script src="{{ s | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+{%- endfor %}
+</body>
+</html>
