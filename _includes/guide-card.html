@@ -1,0 +1,11 @@
+{%- assign g = include.guide -%}
+{%- assign gc = site.data.guide_categories[g.category] -%}
+<a class="card g-card hover cat-{{ g.category }}" href="{{ g.url | relative_url }}" data-cat="{{ g.category }}">
+  <div class="g-top"></div>
+  <div class="g-body">
+    <span class="badge badge-brand">{% include icon.html name=gc.icon %} {{ gc.label }}</span>
+    <h3>{{ g.title }}</h3>
+    <p>{{ g.description | truncate: 130 }}</p>
+    <div class="g-meta"><span>{% include icon.html name="clock" %} {{ g.reading_time | default: 8 }} min read</span><span>Updated {{ g.last_modified_at | default: g.date | date: '%b %Y' }}</span></div>
+  </div>
+</a>
