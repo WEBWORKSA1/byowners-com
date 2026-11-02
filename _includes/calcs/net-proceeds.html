@@ -1,0 +1,32 @@
+<div class="calc">
+  <div class="calc-panel">
+    <h3>Sale &amp; payoff</h3>
+    {% include calcs/range.html k="price" label="Sale price" unit="$" min=50000 max=3000000 step=5000 value=400000 %}
+    {% include calcs/range.html k="payoff" label="Mortgage payoff (all liens)" unit="$" min=0 max=2500000 step=1000 value=180000 %}
+    <h3 class="mt-3">Selling costs</h3>
+    <div class="form-row">
+      {% include calcs/num.html k="listComm" label="Listing-side commission" unit="%" value=0 step=0.1 hint="0% if you sell by owner" %}
+      {% include calcs/num.html k="buyerComm" label="Buyer-agent fee you pay" unit="%" value=2.5 step=0.1 %}
+      {% include calcs/num.html k="closing" label="Title, escrow & attorney" unit="% of price" value=1 step=0.1 %}
+      {% include calcs/num.html k="transfer" label="Transfer/excise tax" unit="% of price" value=0.4 step=0.05 hint="Varies widely by state & county" %}
+      {% include calcs/num.html k="concessions" label="Concessions & credits to buyer" unit="$" value=3000 %}
+      {% include calcs/num.html k="repairs" label="Repairs & prep" unit="$" value=2500 %}
+      {% include calcs/num.html k="proration" label="Prorated taxes/HOA owed" unit="$" value=1800 %}
+      {% include calcs/num.html k="other" label="Moving & other" unit="$" value=1500 %}
+    </div>
+    {% include calcs/share.html %}
+  </div>
+  <div class="calc-result" aria-live="polite">
+    <span class="badge badge-accent">Estimated cash at closing</span>
+    <div class="result-big" data-o="net">$0</div>
+    <p style="color:#94a3b8;margin:0"><span data-o="netPct">0%</span> of the sale price lands in your pocket.</p>
+    <div class="chart-wrap" data-chart="donut"></div>
+    <div class="legend" data-legend></div>
+    <div class="result-rows">
+      <div class="result-row"><span>Mortgage payoff</span><b data-o="payoffOut">$0</b></div>
+      <div class="result-row"><span>Commissions</span><b data-o="commOut">$0</b></div>
+      <div class="result-row"><span>Closing &amp; transfer costs</span><b data-o="closeOut">$0</b></div>
+      <div class="result-row"><span>Concessions, repairs, prorations, other</span><b data-o="otherOut">$0</b></div>
+    </div>
+  </div>
+</div>
