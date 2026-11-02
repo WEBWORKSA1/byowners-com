@@ -1,0 +1,106 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="partner-bar" role="region" aria-label="Partnership notice">
+  <a href="{{ site.partner_contact_url }}" target="_blank" rel="noopener">
+    <span class="pill">Contact</span>
+    <span>Contact, if you are interested in this website / domain name / Sponsorship / Advertisement / Partnership</span>
+    {% include icon.html name="arrow-right" %}
+  </a>
+</div>
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="logo" href="{{ '/' | relative_url }}" aria-label="ByOwners.com home">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9v11h14V9"/><path d="M9.5 14.5l2 2 3.5-4"/></svg></span>
+      <span>ByOwners<span class="dot">.com</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        <li class="has-menu">
+          <button class="nav-link" aria-expanded="false" aria-haspopup="true">Marketplace {% include icon.html name="chevron-down" %}</button>
+          <div class="mega" role="menu">
+            {% for c in site.data.listing_categories %}
+            <a href="{{ c.url | relative_url }}" role="menuitem">{% include icon.html name=c.icon %}<div><strong>{{ c.label }}</strong><span>{{ c.desc }}</span></div></a>
+            {% endfor %}
+          </div>
+        </li>
+        <li><a href="{{ '/sell/' | relative_url }}" {% if page.url == '/sell/' %}aria-current="page"{% endif %}>Sell</a></li>
+        <li><a href="{{ '/rent/' | relative_url }}" {% if page.url == '/rent/' %}aria-current="page"{% endif %}>Rent</a></li>
+        <li><a href="{{ '/buy/' | relative_url }}" {% if page.url == '/buy/' %}aria-current="page"{% endif %}>Buy</a></li>
+        <li class="has-menu">
+          <button class="nav-link" aria-expanded="false" aria-haspopup="true">Learn {% include icon.html name="chevron-down" %}</button>
+          <div class="mega" role="menu">
+            <a href="{{ '/guides/' | relative_url }}" role="menuitem">{% include icon.html name="book" %}<div><strong>Owner Guides</strong><span>Step-by-step playbooks, sourced and updated</span></div></a>
+            <a href="{{ '/checklist/' | relative_url }}" role="menuitem">{% include icon.html name="check-circle" %}<div><strong>Interactive FSBO Checklist</strong><span>Track every task from prep to closing</span></div></a>
+            <a href="{{ '/videos/' | relative_url }}" role="menuitem">{% include icon.html name="play" %}<div><strong>Video Library</strong><span>Watch-and-learn tutorials, updated daily</span></div></a>
+            <a href="{{ '/news/' | relative_url }}" role="menuitem">{% include icon.html name="rss" %}<div><strong>Market News</strong><span>Housing &amp; rates headlines, auto-refreshed</span></div></a>
+            <a href="{{ '/glossary/' | relative_url }}" role="menuitem">{% include icon.html name="tag" %}<div><strong>Glossary</strong><span>Real estate terms in plain English</span></div></a>
+            <a href="{{ '/resources/' | relative_url }}" role="menuitem">{% include icon.html name="globe" %}<div><strong>Official Resources</strong><span>Gov &amp; consumer agency links</span></div></a>
+            <a href="{{ '/safety/' | relative_url }}" role="menuitem">{% include icon.html name="shield" %}<div><strong>Trust &amp; Safety</strong><span>Scam red flags &amp; report a listing</span></div></a>
+            <a href="{{ '/faq/' | relative_url }}" role="menuitem">{% include icon.html name="info" %}<div><strong>FAQ</strong><span>Quick answers for owners</span></div></a>
+          </div>
+        </li>
+        <li class="has-menu">
+          <button class="nav-link" aria-expanded="false" aria-haspopup="true">Tools {% include icon.html name="chevron-down" %}</button>
+          <div class="mega" role="menu">
+            {% for t in site.data.tools %}
+            <a href="{{ '/tools/' | append: t.slug | append: '/' | relative_url }}" role="menuitem">{% include icon.html name=t.icon %}<div><strong>{{ t.title }}</strong><span>{{ t.desc | truncate: 70 }}</span></div></a>
+            {% endfor %}
+          </div>
+        </li>
+        <li class="has-menu">
+          <button class="nav-link" aria-expanded="false" aria-haspopup="true">Community {% include icon.html name="chevron-down" %}</button>
+          <div class="mega one-col" role="menu">
+            <a href="{{ '/pros/' | relative_url }}" role="menuitem">{% include icon.html name="handshake" %}<div><strong>Find a Pro</strong><span>Flat-fee MLS, attorneys, inspectors &amp; more</span></div></a>
+            <a href="{{ '/contests/' | relative_url }}" role="menuitem">{% include icon.html name="award" %}<div><strong>Contests &amp; Prizes</strong><span>Enter, win, get featured</span></div></a>
+            <a href="{{ '/careers/' | relative_url }}" role="menuitem">{% include icon.html name="users" %}<div><strong>Join the Team</strong><span>Writers, creators, ambassadors</span></div></a>
+            <a href="{{ '/support/' | relative_url }}" role="menuitem">{% include icon.html name="heart" %}<div><strong>Support Us</strong><span>Keep ByOwners free for every owner</span></div></a>
+            <a href="{{ '/advertise/' | relative_url }}" role="menuitem">{% include icon.html name="megaphone" %}<div><strong>Advertise &amp; Sponsor</strong><span>Reach active owners, buyers &amp; renters</span></div></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" type="button" data-open-search aria-label="Search the site (Ctrl+K)">{% include icon.html name="search" %}</button>
+      <button class="icon-btn" type="button" id="themeToggle" aria-label="Toggle dark mode">{% include icon.html name="moon" %}</button>
+      <a class="btn btn-outline btn-sm header-cta" href="{{ '/sell/' | relative_url }}">List free</a>
+      <a class="btn btn-primary btn-sm header-cta cta-primary" href="{{ '/get-started/' | relative_url }}">Get started</a>
+      <button class="icon-btn menu-toggle" type="button" id="menuToggle" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">{% include icon.html name="menu" %}</button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-backdrop" data-close-drawer></div>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="flex-between mb-2">
+      <a class="logo" href="{{ '/' | relative_url }}"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9v11h14V9"/><path d="M9.5 14.5l2 2 3.5-4"/></svg></span><span>ByOwners<span class="dot">.com</span></span></a>
+      <button class="icon-btn" data-close-drawer aria-label="Close menu">{% include icon.html name="x" %}</button>
+    </div>
+    <a class="btn btn-primary btn-block" href="{{ '/get-started/' | relative_url }}">Get my free owner plan</a>
+    <nav aria-label="Mobile">
+      <div class="drawer-group">Marketplace</div>
+      <a href="{{ '/listings/' | relative_url }}">{% include icon.html name="search" %} Browse all listings</a>
+      <a href="{{ '/sell/' | relative_url }}">{% include icon.html name="tag" %} List your property free</a>
+      <a href="{{ '/buy/' | relative_url }}">{% include icon.html name="bag" %} Buy from owners</a>
+      <a href="{{ '/rent/' | relative_url }}">{% include icon.html name="key" %} Rent by owner</a>
+      <a href="{{ '/land-for-sale-by-owner/' | relative_url }}">{% include icon.html name="land" %} Land by owner</a>
+      <a href="{{ '/cars-for-sale-by-owner/' | relative_url }}">{% include icon.html name="car" %} Vehicles by owner</a>
+      <a href="{{ '/businesses-for-sale-by-owner/' | relative_url }}">{% include icon.html name="briefcase" %} Businesses by owner</a>
+      <a href="{{ '/vacation-homes-by-owner/' | relative_url }}">{% include icon.html name="sun" %} Vacation homes by owner</a>
+      <div class="drawer-group">Learn &amp; tools</div>
+      <a href="{{ '/guides/' | relative_url }}">{% include icon.html name="book" %} Owner guides</a>
+      <a href="{{ '/tools/' | relative_url }}">{% include icon.html name="calc" %} Calculators</a>
+      <a href="{{ '/checklist/' | relative_url }}">{% include icon.html name="check-circle" %} FSBO checklist</a>
+      <a href="{{ '/videos/' | relative_url }}">{% include icon.html name="play" %} Videos</a>
+      <a href="{{ '/news/' | relative_url }}">{% include icon.html name="rss" %} Market news</a>
+      <a href="{{ '/glossary/' | relative_url }}">{% include icon.html name="tag" %} Glossary</a>
+      <a href="{{ '/safety/' | relative_url }}">{% include icon.html name="shield" %} Trust &amp; Safety</a>
+      <div class="drawer-group">Community</div>
+      <a href="{{ '/pros/' | relative_url }}">{% include icon.html name="handshake" %} Find a pro</a>
+      <a href="{{ '/contests/' | relative_url }}">{% include icon.html name="award" %} Contests &amp; prizes</a>
+      <a href="{{ '/careers/' | relative_url }}">{% include icon.html name="users" %} Join the team</a>
+      <a href="{{ '/support/' | relative_url }}">{% include icon.html name="heart" %} Support us</a>
+      <a href="{{ '/advertise/' | relative_url }}">{% include icon.html name="megaphone" %} Advertise</a>
+      <a href="{{ '/contact/' | relative_url }}">{% include icon.html name="message" %} Contact</a>
+    </nav>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <span class="eyebrow">{% include icon.html name="mail" %} The Owner Brief</span>
+        <h2>New by-owner listings &amp; money-saving tips, every week</h2>
+        <p>One short email. New listings in your area, a tactic that saves owners real money, and market moves that matter. Free forever.</p>
+      </div>
+      <form class="inline-form" data-form="newsletter" data-subject="Newsletter signup" novalidate>
+        <label class="sr-only" for="nlEmail{{ include.id }}">Email</label>
+        <input id="nlEmail{{ include.id }}" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-white" type="submit">Subscribe free</button>
+        <p class="tiny" style="flex-basis:100%;color:#d1fae5;margin:4px 0 0">No spam. Unsubscribe anytime.</p>
+      </form>
+    </div>
+  </div>
+</section>
