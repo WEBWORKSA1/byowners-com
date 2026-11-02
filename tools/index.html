@@ -1,0 +1,27 @@
+---
+layout: page
+title: "Free Real Estate Calculators for Owners"
+crumb: "Tools"
+eyebrow: "Free · No sign-up"
+eyebrow_icon: calc
+h1: "Free calculators for owners, buyers & landlords"
+lead: "Commission savings, net proceeds, mortgage, affordability, rental returns, rent vs. buy and closing costs — run the real numbers in seconds."
+description: "Free real estate calculators: commission savings, seller net proceeds, mortgage with PMI and amortization, affordability, rental property ROI, rent vs buy, closing costs."
+---
+<section class="section" style="padding-top:28px">
+  <div class="container">
+    <div class="grid grid-2">
+      {% for t in site.data.tools %}
+      <a class="card hover tool-card" href="{{ '/tools/' | append: t.slug | append: '/' | relative_url }}"><div class="card-icon {{ t.color }}">{% include icon.html name=t.icon class="ic-lg" %}</div><div><h3>{{ t.title }}</h3><p>{{ t.desc }}</p><span class="card-link">Open tool {% include icon.html name="arrow-right" %}</span></div></a>
+      {% endfor %}
+    </div>
+    {% if site.data.rates.rate30 %}
+    <div class="flex mt-4" style="justify-content:center">
+      <div class="rate-pill"><span class="small muted">30-yr fixed avg</span><b data-rate30></b></div>
+      <div class="rate-pill"><span class="small muted">15-yr fixed avg</span><b data-rate15></b></div>
+      <span class="tiny muted">Freddie Mac PMMS via FRED · week of <span data-rate-date></span> · updated automatically</span>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% include newsletter.html id="th" %}
