@@ -1,0 +1,138 @@
+---
+layout: page
+title: "List Your Property Free — Sell or Rent By Owner"
+crumb: "List free"
+eyebrow: "List free · No commission"
+eyebrow_icon: tag
+h1: "List your home, rental, land, vehicle or business — free"
+lead: "Reach buyers and renters directly. Every listing is reviewed by a person and published with a map pin, photos and private messaging. Upgrade anytime for more exposure."
+description: "Create a free by-owner listing for a home, rental, vacation home, land, vehicle, boat/RV or business. Private messaging, human review, optional Featured upgrades."
+hide_mobile_cta: true
+faqs:
+  - q: "How long until my listing is live?"
+    a: "Most listings are reviewed and published within 1–2 business days. We'll email you a link and may ask a quick question if anything is unclear."
+  - q: "How do photos work?"
+    a: "Paste a share link to a photo album (Google Photos, Google Drive, Dropbox, iCloud) in the form, or reply to our confirmation email with photos attached. Use your own photos only."
+  - q: "How long does a listing stay up?"
+    a: "Free listings run 90 days and can be renewed for free. Tell us when your property sells or rents and we'll mark it accordingly."
+  - q: "Do you need my exact address?"
+    a: "We need it to verify the listing, but you choose whether the public page shows the exact address or just the street and city."
+---
+<section class="section" style="padding-top:36px">
+  <div class="container">
+    <div class="pricing">
+      {% for p in site.data.pricing %}
+      <div class="card price-card{% if p.popular %} pop{% endif %}">
+        {% if p.popular %}<span class="ribbon badge badge-accent">Most popular</span>{% endif %}
+        <h3>{{ p.name }}</h3>
+        <div class="price">{{ p.price }} <small>/ {{ p.period }}</small></div>
+        <ul class="ticks">{% for f in p.features %}<li>{% include icon.html name="check" %}<span>{{ f }}</span></li>{% endfor %}</ul>
+        <a class="btn {% if p.popular %}btn-primary{% else %}btn-outline{% endif %} btn-block" href="#listing-form" data-plan="{{ p.plan }}" onclick="var s=document.getElementById('lfPlan');if(s){s.value='{{ p.plan }}'}">{{ p.cta }}</a>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="small muted center mt-2">Paid plans are invoiced securely after your listing is approved — no card details are collected on this site. Prices in USD.</p>
+  </div>
+</section>
+
+<section class="section lead-section" id="listing-form">
+  <div class="container split" style="align-items:start">
+    <div>
+      <span class="eyebrow">{% include icon.html name="file" %} 4 short steps</span>
+      <h2>Create your listing</h2>
+      <p class="lead">Tell us about the property. We'll polish the formatting, check it for accuracy and fair-housing compliance, and send you the live link.</p>
+      <ul class="benefit-list">
+        <li>{% include icon.html name="check" %}<div><strong>Private inquiries</strong><span>Buyers and renters message you through ByOwners — your phone and email stay private.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Scam screening</strong><span>We filter obvious spam and fraud patterns before they reach you.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Owner toolkit included</strong><span>Checklist, calculators and guides for every step.</span></div></li>
+      </ul>
+      <div class="notice mt-3"><strong>Listing rules:</strong> you must own the property or be authorized to list it, use your own photos, describe it accurately, and comply with fair housing laws (describe the property, not the people you want). See our <a href="{{ '/terms/' | relative_url }}#listings">listing terms</a>.</div>
+    </div>
+
+    <form class="wizard" id="listingForm" data-wizard data-form="listing-submission" data-scroll="yes" novalidate>
+      <div class="wizard-top"><span data-step-label>Step 1</span><span>{% include icon.html name="clock" %} About 3 minutes</span></div>
+      <div class="progress" aria-hidden="true"><span></span></div>
+
+      <div class="step active">
+        <h3>What are you listing?</h3>
+        <div class="options cols-2" data-auto>
+          {% for c in site.data.listing_categories %}
+          <div class="option"><input type="radio" id="lf-c{{ forloop.index }}" name="goal" value="{{ c.key }}"{% if forloop.first %} required{% endif %}><label for="lf-c{{ forloop.index }}">{% include icon.html name=c.icon %}{{ c.label }}</label></div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="step">
+        <h3>The basics</h3>
+        <div class="field"><label for="lf-title">Listing headline</label><input id="lf-title" name="headline" maxlength="90" placeholder="e.g. Sunny 3-bed ranch with updated kitchen" required></div>
+        <div class="form-row">
+          <div class="field"><label for="lf-price">Price ($)</label><input id="lf-price" name="price" inputmode="numeric" placeholder="e.g. 389000 or 1895/mo" required></div>
+          <div class="field"><label for="lf-zip">ZIP code</label><input id="lf-zip" name="zip" inputmode="numeric" pattern="[0-9]{5}" title="Enter a 5-digit ZIP code" required></div>
+        </div>
+        <div class="field"><label for="lf-addr">Street address <span class="muted">(for verification)</span></label><input id="lf-addr" name="address" autocomplete="street-address" required></div>
+        <div class="form-row">
+          <div class="field"><label for="lf-city">City</label><input id="lf-city" name="city" autocomplete="address-level2" required></div>
+          <div class="field"><label for="lf-state">State</label><input id="lf-state" name="state" maxlength="2" placeholder="TX" autocomplete="address-level1" required></div>
+        </div>
+        <label class="check"><input type="checkbox" name="hide_address" value="yes"> Show only street name and city publicly</label>
+      </div>
+
+      <div class="step">
+        <h3>Details</h3>
+        <div class="form-row three">
+          <div class="field"><label for="lf-beds">Beds</label><input id="lf-beds" name="beds" inputmode="numeric"></div>
+          <div class="field"><label for="lf-baths">Baths</label><input id="lf-baths" name="baths" inputmode="decimal"></div>
+          <div class="field"><label for="lf-sqft">Sq ft / acres</label><input id="lf-sqft" name="size"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="lf-year">Year built / model year</label><input id="lf-year" name="year" inputmode="numeric"></div>
+          <div class="field"><label for="lf-extra">Mileage / revenue / HOA <span class="muted">(if relevant)</span></label><input id="lf-extra" name="extra"></div>
+        </div>
+        <div class="field"><label for="lf-desc">Description</label><textarea id="lf-desc" name="description" rows="6" placeholder="Layout, updates, condition, what's included, neighborhood highlights, showing instructions…" required minlength="80"></textarea><span class="hint">Describe the property, not the ideal buyer or tenant (fair housing).</span></div>
+        <div class="field"><label for="lf-photos">Photo album link <span class="muted">(Google Photos, Drive, Dropbox, iCloud)</span></label><input id="lf-photos" name="photos" type="url" placeholder="https://"></div>
+        <div class="field"><label for="lf-video">Video tour link <span class="muted">(optional)</span></label><input id="lf-video" name="video" type="url" placeholder="https://"></div>
+      </div>
+
+      <div class="step">
+        <h3>Your contact &amp; plan</h3>
+        <div class="form-row">
+          <div class="field"><label for="lf-fn">First name</label><input id="lf-fn" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="lf-ln">Last name</label><input id="lf-ln" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="lf-em">Email</label><input id="lf-em" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="lf-ph">Phone <span class="muted">(optional)</span></label><input id="lf-ph" name="phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="field"><label for="lfPlan">Plan</label><select id="lfPlan" name="plan">{% for p in site.data.pricing %}<option value="{{ p.plan }}">{{ p.name }} — {{ p.price }} / {{ p.period }}</option>{% endfor %}</select></div>
+        <span class="label">Want help with any of these? <span class="muted">(optional)</span></span>
+        <div class="options cols-2 mt-1">
+          <div class="option"><input type="checkbox" id="lf-h1" name="help" value="Flat-fee MLS listing"><label for="lf-h1">Flat-fee MLS</label></div>
+          <div class="option"><input type="checkbox" id="lf-h2" name="help" value="Attorney / contract help"><label for="lf-h2">Attorney / contract</label></div>
+          <div class="option"><input type="checkbox" id="lf-h3" name="help" value="Pro photos"><label for="lf-h3">Pro photos</label></div>
+          <div class="option"><input type="checkbox" id="lf-h4" name="help" value="Pricing worksheet (valuation)"><label for="lf-h4">Pricing worksheet</label></div>
+        </div>
+        <label class="check mt-2"><input type="checkbox" name="owner_attest" value="yes" required> <span>I own this property or am authorized to list it, the information is accurate, and the photos are mine to use.</span></label>
+        <label class="check"><input type="checkbox" name="fair_housing" value="yes" required> <span>My listing complies with fair housing laws and I agree to the <a href="{{ '/terms/' | relative_url }}" target="_blank">Terms</a> and <a href="{{ '/privacy/' | relative_url }}" target="_blank">Privacy Policy</a>.</span></label>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      </div>
+
+      <div class="wizard-nav">
+        <button type="button" class="btn btn-ghost" data-back>{% include icon.html name="arrow-left" %} Back</button>
+        <button type="button" class="btn btn-primary btn-lg" data-next>Continue {% include icon.html name="arrow-right" %}</button>
+        <button type="submit" class="btn btn-accent btn-lg hide" data-submit>Submit my listing {% include icon.html name="send" %}</button>
+      </div>
+      <div class="wizard-trust"><span>{% include icon.html name="check-circle" %} Free to list</span><span>{% include icon.html name="users" %} Human-reviewed</span><span>{% include icon.html name="lock" %} Private inquiries</span></div>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-sm">
+    <div class="section-head"><h2>Listing FAQ</h2></div>
+    <div class="faq">{% for f in page.faqs %}<details><summary>{{ f.q }}</summary><div class="ans"><p>{{ f.a }}</p></div></details>{% endfor %}</div>
+    <div class="grid grid-2 mt-4">
+      <a class="card hover" href="{{ '/guides/how-to-market-a-for-sale-by-owner-home/' | relative_url }}"><h3>Write a listing that sells</h3><p>Headline formulas, photo shot lists and showing tips.</p></a>
+      <a class="card hover" href="{{ '/guides/home-staging-and-listing-photos-on-a-budget/' | relative_url }}"><h3>Stage &amp; shoot on a budget</h3><p>Smartphone photo settings and $0–$2,000 staging plans.</p></a>
+    </div>
+  </div>
+</section>

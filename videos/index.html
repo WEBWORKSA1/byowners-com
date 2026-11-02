@@ -1,0 +1,40 @@
+---
+layout: page
+title: "Video Library: Selling, Renting & Buying By Owner"
+crumb: "Videos"
+eyebrow: "Watch & learn"
+eyebrow_icon: play
+h1: "Video tutorials for owners"
+lead: "Hand-picked how-to videos on pricing, staging, paperwork, landlording, scams and more — plus the latest uploads from trusted channels, refreshed daily."
+description: "Free video tutorials for owners: how to sell your house by owner, stage and photograph a home, screen tenants, owner financing, closing costs and avoiding scams."
+---
+<section class="section" style="padding-top:28px">
+  <div class="container">
+    {% if site.data.videos.items.size > 0 %}
+    <div data-filter-group="#videoGrid">
+      <div class="chips mb-3">
+        <button type="button" class="chip" data-filter="all">All</button>
+        {% for c in site.data.guide_categories %}{% assign n = site.data.videos.items | where: "category", c[0] | size %}{% if n > 0 %}<button type="button" class="chip" data-filter="{{ c[0] }}">{{ c[1].label }} ({{ n }})</button>{% endif %}{% endfor %}
+      </div>
+    </div>
+    <div class="video-grid" id="videoGrid">{% for v in site.data.videos.items %}{% include video-card.html video=v %}{% endfor %}</div>
+    {% else %}
+    <div class="empty-state">{% include icon.html name="play" %}<h3>Our curated video library refreshes automatically</h3><p class="muted">Videos are verified and added by our daily update job. In the meantime, browse topics on YouTube:</p>
+      <div class="chips" style="justify-content:center">
+        {% assign topics = "how to sell your house by owner|for sale by owner tips|how to stage a home for sale|first time landlord tips|how to screen tenants|seller financing explained|how to sell a car privately|real estate wire fraud" | split: "|" %}
+        {% for t in topics %}<a class="chip" href="https://www.youtube.com/results?search_query={{ t | url_encode }}" target="_blank" rel="noopener nofollow">{% include icon.html name="play" %} {{ t | capitalize }}</a>{% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% include ad.html slot="in_feed" %}
+    {% if site.data.channel_videos.items.size > 0 %}
+    <div class="section-head left mt-4"><span class="eyebrow">{% include icon.html name="refresh" %} Updated daily</span><h2>Latest from trusted channels</h2><p>New uploads from real estate, landlording and consumer-protection educators. Last refreshed {{ site.data.channel_videos.updated | date: '%B %-d, %Y' }}.</p></div>
+    <div class="video-grid">{% for v in site.data.channel_videos.items limit: 12 %}{% include video-card.html video=v %}{% endfor %}</div>
+    {% endif %}
+    <div class="cta-band mt-4">
+      <div><h2>Make videos? Win the Creator Challenge.</h2><p>Share a 60-second tip for owners. The best entries get featured here and win prizes.</p></div>
+      <div class="flex"><a class="btn btn-white btn-lg" href="{{ '/contests/' | relative_url }}#creator-challenge">Enter the challenge</a></div>
+    </div>
+    <p class="tiny muted mt-3">Videos are created by independent third parties and embedded via YouTube in privacy-enhanced mode. Their inclusion is not an endorsement, and creators' views are their own.</p>
+  </div>
+</section>
