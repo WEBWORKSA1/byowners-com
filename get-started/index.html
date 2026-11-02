@@ -1,0 +1,58 @@
+---
+layout: default
+title: "Get Your Free Owner Plan"
+description: "Answer 5 quick questions and get a free, personalized plan to sell, rent out or buy by owner — pricing worksheet, paperwork checklist and optional vetted-pro matches."
+hide_mobile_cta: true
+faqs:
+  - q: "What exactly do I get?"
+    a: "A personalized plan for your goal and ZIP code: a pricing or rent worksheet based on comparable sales or rentals, a paperwork checklist, links to the right guides and calculators, and optional introductions to vetted pros you ask for."
+  - q: "Is it really free? What's the catch?"
+    a: "It's free for owners. We earn from advertising, optional listing upgrades, sponsorships and flat-fee advertising from service providers — never from a commission on your sale."
+  - q: "Will I get spammed with calls?"
+    a: "No. Phone is optional. We only share your details with a provider if you ask for that type of help and tick the optional consent box, and you can opt out anytime."
+  - q: "How fast will I hear back?"
+    a: "A real person reviews each request. Expect a reply within 1–2 business days, usually sooner."
+---
+<section class="hero" style="padding-bottom:40px">
+  <div class="container split" style="align-items:start">
+    <div>
+      <span class="eyebrow"><span class="pulse-dot"></span> Free · 60 seconds · No obligation</span>
+      <h1>Your free <span class="hl">owner plan</span> — built for your goal and ZIP code</h1>
+      <p class="lead">Selling, renting out, buying or hiring help? Answer five quick questions. A real person prepares your plan and follows up — no commission, no pressure.</p>
+      <ul class="benefit-list">
+        <li>{% include icon.html name="check" %}<div><strong>Pricing or rent worksheet</strong><span>Comparable sales or rentals near you, so you price with evidence.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Step-by-step checklist</strong><span>Disclosures, contracts, showings and closing — in the right order.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Free listing included</strong><span>Publish on ByOwners.com when you're ready, at no cost.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Pros only if you want them</strong><span>Flat-fee MLS, attorneys, inspectors, lenders, photographers.</span></div></li>
+      </ul>
+      <div class="card mt-3" style="background:var(--surface-2)">
+        <div class="flex" style="gap:14px;align-items:flex-start">
+          <div class="card-icon" style="margin:0">{% include icon.html name="percent" class="ic-lg" %}</div>
+          <div><strong>Example: what owners keep</strong><p class="small mb-0">On a $400,000 sale, a 5.5% total commission is $22,000. Selling by owner while offering a 2.5% buyer-agent fee and spending $1,500 on help keeps about <strong>$10,500</strong> with you. <a href="{{ '/tools/commission-savings-calculator/' | relative_url }}">Run your numbers →</a></p></div>
+        </div>
+      </div>
+    </div>
+    <div style="position:sticky;top:calc(var(--header-h) + 16px)">
+      {% include lead-wizard.html id="ownerPlan" %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">{% include icon.html name="map" %} What happens next</span><h2>From request to results in three steps</h2></div>
+    <div class="steps three">
+      <div class="step-card"><h3>You tell us your goal</h3><p>Five quick questions — goal, property, location, timeline and what help you want.</p></div>
+      <div class="step-card"><h3>A real person builds your plan</h3><p>We prepare your worksheet and checklist and send it within 1–2 business days.</p></div>
+      <div class="step-card"><h3>You decide what's next</h3><p>List free, use the tools, or meet the pros you chose. You stay in control the whole way.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-sm">
+    <div class="section-head"><h2>Common questions</h2></div>
+    <div class="faq">{% for f in page.faqs %}<details{% if forloop.first %} open{% endif %}><summary>{{ f.q }}</summary><div class="ans"><p>{{ f.a }}</p></div></details>{% endfor %}</div>
+    <p class="small muted center mt-3">ByOwners.com is not a real estate broker and does not provide legal advice. Pros you choose are independent businesses. See our <a href="{{ '/disclaimer/' | relative_url }}">disclaimer</a>.</p>
+  </div>
+</section>
