@@ -1,0 +1,8 @@
+- { key: home-sale,  label: "Homes for Sale",   short: "Homes",      icon: home,      unit: "",       url: /listings/?cat=home-sale,  desc: "Houses, condos & townhomes sold directly by owners" }
+- { key: rental,     label: "Rentals",          short: "Rentals",    icon: key,       unit: "/mo",    url: /listings/?cat=rental,     desc: "Apartments & homes rented by private landlords" }
+- { key: vacation,   label: "Vacation Homes",   short: "Vacation",   icon: sun,       unit: "/night", url: /listings/?cat=vacation,   desc: "Short-term stays booked direct with owners" }
+- { key: land,       label: "Land & Lots",      short: "Land",       icon: land,      unit: "",       url: /listings/?cat=land,       desc: "Acreage, lots, farms & ranch land" }
+- { key: vehicle,    label: "Vehicles",         short: "Vehicles",   icon: car,       unit: "",       url: /listings/?cat=vehicle,    desc: "Cars, trucks & motorcycles from private sellers" }
+- { key: boat-rv,    label: "Boats & RVs",      short: "Boats & RVs", icon: anchor,   unit: "",       url: /listings/?cat=boat-rv,    desc: "Boats, campers & RVs from owners" }
+- { key: business,   label: "Businesses",       short: "Businesses", icon: briefcase, unit: "",       url: /listings/?cat=business,   desc: "Small businesses sold by founders" }
+- { key: commercial, label: "Commercial",       short: "Commercial", icon: building,  unit: "",       url: /listings/?cat=commercial, desc: "Retail, office & industrial space by owner" }

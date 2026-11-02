@@ -1,0 +1,65 @@
+- phase: "1. Decide & plan"
+  items:
+    - ["Take the sell-by-owner readiness quiz", "Know where you'll need help before you start."]
+    - ["Pull your mortgage payoff estimate", "Call your servicer or check your online account."]
+    - ["Estimate your net proceeds", "Use the net proceeds calculator with realistic costs."]
+    - ["Choose your target listing date", "Work backward 3–4 weeks for prep."]
+    - ["Decide on support: attorney, title company, flat-fee MLS", "Get two quotes for each service you want."]
+    - ["Check HOA rules and required resale documents", "Some HOAs take 10+ days to produce them."]
+- phase: "2. Prepare the home"
+  items:
+    - ["Declutter and depersonalize every room", "Rent a small storage unit if needed."]
+    - ["Fix small, visible defects", "Leaky faucets, cracked switch plates, sticky doors."]
+    - ["Deep clean, including windows and grout", ""]
+    - ["Boost curb appeal", "Mow, edge, mulch, paint the front door, new house numbers."]
+    - ["Consider a pre-listing inspection", "Find problems before a buyer's inspector does."]
+    - ["Gather receipts for upgrades and repairs", "Buyers love documented improvements."]
+    - ["Collect warranties, manuals and utility averages", ""]
+- phase: "3. Price it right"
+  items:
+    - ["Pull 3–6 comparable sales from the last 6 months", "Same area, similar size, age and condition."]
+    - ["Calculate price per square foot from the comps", ""]
+    - ["Adjust for differences (beds, baths, garage, condition)", ""]
+    - ["Consider an independent appraisal", "Strong evidence when buyers push back."]
+    - ["Set your list price and your walk-away number", "Write both down before the first offer."]
+- phase: "4. Paperwork & disclosures"
+  items:
+    - ["Get a copy of your deed and confirm how title is held", ""]
+    - ["Complete your state's seller disclosure form", "Disclose known material defects honestly."]
+    - ["Lead-based paint disclosure for pre-1978 homes", "Federal requirement, plus the EPA pamphlet."]
+    - ["Choose your purchase agreement (state form or attorney-drafted)", ""]
+    - ["Prepare a property fact sheet", "Taxes, HOA, utilities, updates, inclusions."]
+- phase: "5. Market the listing"
+  items:
+    - ["Shoot bright, wide photos in daylight (or hire a pro)", "25–40 photos covering every room."]
+    - ["Write a headline and description that sells", "Lead with the top 3 features."]
+    - ["List free on ByOwners.com", ""]
+    - ["Add a flat-fee MLS listing if you want wider reach", ""]
+    - ["Put up a yard sign with a QR code to your listing", ""]
+    - ["Share on social media and with neighbors", "Neighbors often know someone who wants in."]
+    - ["Print flyers with the fact sheet", ""]
+- phase: "6. Showings & open houses"
+  items:
+    - ["Set showing hours and confirm buyers are pre-approved", ""]
+    - ["Secure valuables, medications and documents", ""]
+    - ["Use a sign-in sheet at open houses", ""]
+    - ["Never show alone — have a friend or neighbor present", ""]
+    - ["Follow up with every visitor within 24 hours", ""]
+- phase: "7. Offers & negotiation"
+  items:
+    - ["Compare offers on net, not just price", "Contingencies, financing, closing date, credits."]
+    - ["Verify the buyer's pre-approval with the lender", ""]
+    - ["Counter in writing with clear deadlines", ""]
+    - ["Have your attorney review the contract before signing", ""]
+    - ["Deposit earnest money with the title company or attorney", "Never accept it personally by wire."]
+- phase: "8. Under contract to closing"
+  items:
+    - ["Schedule the buyer's inspection and appraisal access", ""]
+    - ["Negotiate repair requests (repair, credit or price)", ""]
+    - ["Order the payoff statement and HOA documents", ""]
+    - ["Confirm wiring instructions by phone with a known number", "Wire fraud targets closings."]
+    - ["Review the settlement statement line by line", ""]
+    - ["Schedule utility transfers and mail forwarding", ""]
+    - ["Do the final walk-through prep: clean and empty the home", ""]
+    - ["Sign closing documents and hand over keys", ""]
+    - ["Keep copies of all closing documents for taxes", "Your gain is reported for the year of sale if required."]

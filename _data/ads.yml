@@ -1,0 +1,9 @@
+# Google AdSense. Auto ads run from the head script on every page.
+# Optional: create display ad units in AdSense and paste their slot IDs below
+# to also render fixed in-content units. Empty = not rendered (no blank boxes).
+client: "ca-pub-6620975821265271"
+slots:
+  in_article: ""
+  in_feed: ""
+  sidebar: ""
+  footer: ""
