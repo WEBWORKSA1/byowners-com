@@ -1,0 +1,8 @@
+{%- assign slot = site.data.ads.slots[include.slot] -%}
+{%- if slot and slot != "" -%}
+<div class="ad-wrap no-print">
+  <span class="ad-label">Advertisement</span>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="{{ site.data.ads.client }}" data-ad-slot="{{ slot }}" {% if include.format == 'fluid' %}data-ad-format="fluid" data-ad-layout="in-article"{% else %}data-ad-format="auto" data-full-width-responsive="true"{% endif %}></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+{%- endif -%}
