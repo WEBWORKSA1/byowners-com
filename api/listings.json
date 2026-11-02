@@ -1,0 +1,35 @@
+---
+layout: null
+permalink: /api/listings.json
+sitemap: false
+---
+{
+  "generated": "{{ site.time | date_to_xmlschema }}",
+  "listings": [{% for l in site.listings %}
+    {
+      "id": {{ l.slug | jsonify }},
+      "title": {{ l.title | jsonify }},
+      "url": "{{ l.url | relative_url }}",
+      "category": {{ l.category | jsonify }},
+      "price": {{ l.price | default: 0 }},
+      "city": {{ l.city | jsonify }},
+      "state": {{ l.state | jsonify }},
+      "zip": {{ l.zip | jsonify }},
+      "beds": {{ l.beds | default: 0 }},
+      "baths": {{ l.baths | default: 0 }},
+      "sqft": {{ l.sqft | default: 0 }},
+      "lot": {{ l.lot | jsonify }},
+      "year": {{ l.year | default: 0 }},
+      "mileage": {{ l.mileage | jsonify }},
+      "revenue": {{ l.revenue | jsonify }},
+      "lat": {{ l.lat | default: "null" }},
+      "lng": {{ l.lng | default: "null" }},
+      "image": {{ l.image | jsonify }},
+      "featured": {% if l.featured %}1{% else %}0{% endif %},
+      "sample": {% if l.sample %}true{% else %}false{% endif %},
+      "posted": "{{ l.posted | date: '%Y-%m-%d' }}",
+      "expires": "{{ l.expires | date: '%Y-%m-%d' }}",
+      "summary": {{ l.content | strip_html | normalize_whitespace | truncate: 160 | jsonify }}
+    }{% unless forloop.last %},{% endunless %}{% endfor %}
+  ]
+}
