@@ -1,0 +1,67 @@
+# ─────────────────────────────────────────────────────────────
+#  ByOwners.com — Jekyll configuration (GitHub Pages compatible)
+# ─────────────────────────────────────────────────────────────
+title: ByOwners.com
+brand: ByOwners
+tagline: "Buy, sell & rent directly from owners"
+description: >-
+  ByOwners.com is the independent owner-to-owner marketplace and learning hub. List your home, rental,
+  land, vehicle or business free, use pro-grade calculators, and get step-by-step guides to sell, rent
+  or buy by owner — and keep more of your money.
+url: "https://byowners.com"
+baseurl: ""
+lang: en-US
+locale: en_US
+timezone: America/New_York
+author: ByOwners.com Editorial Team
+twitter_card: summary_large_image
+og_image: /assets/img/og-image.png
+logo: /assets/img/logo.svg
+
+# Monetization & contact (email lives ONLY in assets/js/config.js, obfuscated)
+adsense_client: "ca-pub-6620975821265271"
+partner_contact_url: "https://web.works/contact"
+
+permalink: /blog/:title/
+markdown: kramdown
+highlighter: none
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  syntax_highlighter_opts:
+    disable: true
+
+collections:
+  guides:
+    output: true
+    permalink: /guides/:name/
+  listings:
+    output: true
+    permalink: /listings/:name/
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: page }
+  - scope: { path: "", type: guides }
+    values: { layout: guide }
+  - scope: { path: "", type: listings }
+    values: { layout: listing }
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - project-docs/
+  - scripts/
+  - node_modules/
+  - vendor/
+  - package.json
+  - "*.sh"
+
+include:
+  - _headers

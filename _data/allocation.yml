@@ -1,0 +1,4 @@
+- { label: "Operations, hosting & security", pct: 30, icon: shield }
+- { label: "Promotion & marketing for owner listings", pct: 30, icon: megaphone }
+- { label: "Hiring writers, creators & developers", pct: 25, icon: users }
+- { label: "Contests & prizes for the community", pct: 15, icon: award }

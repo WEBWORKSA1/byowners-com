@@ -1,0 +1,20 @@
+---
+layout: page
+title: "Page Not Found"
+h1: "We couldn't find that page"
+lead: "The link may be old or the listing may have sold. Try searching, or jump to a popular page below."
+permalink: /404.html
+noindex: true
+sitemap: false
+---
+<section class="section" style="padding-top:28px">
+  <div class="container container-sm center">
+    <button class="btn btn-primary btn-lg" data-open-search>{% include icon.html name="search" %} Search the site</button>
+    <div class="grid grid-2 mt-4" style="text-align:left">
+      <a class="card hover" href="{{ '/listings/' | relative_url }}"><h3>Browse listings</h3><p>Homes, rentals, land and more by owner.</p></a>
+      <a class="card hover" href="{{ '/sell/' | relative_url }}"><h3>List free</h3><p>Publish your property in minutes.</p></a>
+      <a class="card hover" href="{{ '/guides/' | relative_url }}"><h3>Owner guides</h3><p>Step-by-step playbooks.</p></a>
+      <a class="card hover" href="{{ '/tools/' | relative_url }}"><h3>Calculators</h3><p>Savings, mortgage, rental ROI.</p></a>
+    </div>
+  </div>
+</section>
