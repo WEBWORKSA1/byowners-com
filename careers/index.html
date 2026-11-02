@@ -1,0 +1,55 @@
+---
+layout: page
+title: "Careers: Join the ByOwners.com Team"
+crumb: "Careers"
+eyebrow: "We're hiring"
+eyebrow_icon: users
+h1: "Help owners keep more of what they earn"
+lead: "We're building the most useful by-owner marketplace on the web — and we need writers, creators, ambassadors, sellers and builders. Remote-first and flexible."
+description: "Join ByOwners.com: freelance real estate writers, video creators, local market ambassadors, partnership reps, front-end developers and listing moderators."
+---
+<section class="section" style="padding-top:28px">
+  <div class="container">
+    <div class="grid grid-3">
+      {% for r in site.data.roles %}
+      <div class="card">
+        <div class="card-icon violet">{% include icon.html name=r.icon class="ic-lg" %}</div>
+        <h3>{{ r.title }}</h3>
+        <span class="badge">{{ r.type }}</span>
+        <p class="mt-1">{{ r.desc }}</p>
+        <ul class="ticks">{% for s in r.skills %}<li>{% include icon.html name="check" %}<span>{{ s }}</span></li>{% endfor %}</ul>
+        <a class="btn btn-outline btn-sm" href="#apply" onclick="var s=document.getElementById('cr-r');if(s){s.value='{{ r.title }}'}">Apply</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section lead-section" id="apply">
+  <div class="container split" style="align-items:start">
+    <div>
+      <h2>Apply or join the talent pool</h2>
+      <p class="lead">Don't see your exact role? Apply anyway — we hire for skills and drive.</p>
+      <ul class="benefit-list">
+        <li>{% include icon.html name="check" %}<div><strong>Remote &amp; flexible</strong><span>Work from anywhere in the U.S.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Real impact</strong><span>Your work saves owners real money.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Grow with us</strong><span>Early contributors get first shot at full-time roles.</span></div></li>
+      </ul>
+      <p class="small muted">ByOwners.com is an equal opportunity organization. We don't discriminate on the basis of any legally protected characteristic.</p>
+    </div>
+    <form class="card" data-form="job-application" data-subject="Job application" novalidate>
+      <div class="field"><label for="cr-r">Role</label><select id="cr-r" name="role" required>{% for r in site.data.roles %}<option>{{ r.title }}</option>{% endfor %}<option>Talent pool / other</option></select></div>
+      <div class="form-row">
+        <div class="field"><label for="cr-n">Full name</label><input id="cr-n" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="cr-e">Email</label><input id="cr-e" name="email" type="email" required autocomplete="email"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="cr-l">Location</label><input id="cr-l" name="location" required></div>
+        <div class="field"><label for="cr-a">Availability</label><select id="cr-a" name="availability"><option>Freelance / per project</option><option>Part-time</option><option>Full-time</option></select></div>
+      </div>
+      <div class="field"><label for="cr-p">Portfolio, LinkedIn or résumé link</label><input id="cr-p" name="portfolio" type="url" placeholder="https://" required></div>
+      <div class="field"><label for="cr-w">Why you, in a few sentences</label><textarea id="cr-w" name="pitch" rows="4" required></textarea></div>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary btn-block" type="submit">Send application</button>
+    </form>
+  </div>
+</section>
