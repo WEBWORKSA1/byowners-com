@@ -1,0 +1,79 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="{{ '/' | relative_url }}"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9v11h14V9"/><path d="M9.5 14.5l2 2 3.5-4"/></svg></span><span>ByOwners<span class="dot">.com</span></span></a>
+        <p>The independent owner-to-owner marketplace and learning hub. Sell, rent and buy directly — and keep more of what you earn.</p>
+        <form class="inline-form" data-form="newsletter" data-subject="Newsletter signup" novalidate>
+          <label class="sr-only" for="footEmail">Email</label>
+          <input id="footEmail" type="email" name="email" placeholder="Weekly owner tips &amp; new listings" required autocomplete="email">
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
+        <div class="footer-cta">
+          <a class="btn btn-accent btn-sm" href="{{ '/support/' | relative_url }}">{% include icon.html name="heart" %} Support us</a>
+          <a class="btn btn-outline btn-sm" href="#" data-email-link data-subject="Hello from ByOwners.com">{% include icon.html name="mail" %} Email us</a>
+        </div>
+      </div>
+      <div>
+        <h4>Marketplace</h4>
+        <ul>
+          <li><a href="{{ '/listings/' | relative_url }}">Browse listings</a></li>
+          <li><a href="{{ '/sell/' | relative_url }}">List free</a></li>
+          <li><a href="{{ '/buy/' | relative_url }}">Homes by owner</a></li>
+          <li><a href="{{ '/rent/' | relative_url }}">Rentals by owner</a></li>
+          <li><a href="{{ '/land-for-sale-by-owner/' | relative_url }}">Land by owner</a></li>
+          <li><a href="{{ '/cars-for-sale-by-owner/' | relative_url }}">Cars by owner</a></li>
+          <li><a href="{{ '/businesses-for-sale-by-owner/' | relative_url }}">Businesses by owner</a></li>
+          <li><a href="{{ '/vacation-homes-by-owner/' | relative_url }}">Vacation homes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="{{ '/guides/' | relative_url }}">Owner guides</a></li>
+          <li><a href="{{ '/tools/' | relative_url }}">Calculators</a></li>
+          <li><a href="{{ '/checklist/' | relative_url }}">FSBO checklist</a></li>
+          <li><a href="{{ '/videos/' | relative_url }}">Videos</a></li>
+          <li><a href="{{ '/news/' | relative_url }}">Market news</a></li>
+          <li><a href="{{ '/glossary/' | relative_url }}">Glossary</a></li>
+          <li><a href="{{ '/resources/' | relative_url }}">Resources</a></li>
+          <li><a href="{{ '/faq/' | relative_url }}">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="{{ '/get-started/' | relative_url }}">Get your owner plan</a></li>
+          <li><a href="{{ '/pros/' | relative_url }}">Find a pro</a></li>
+          <li><a href="{{ '/pros/#join' | relative_url }}">Join the Pro Network</a></li>
+          <li><a href="{{ '/contests/' | relative_url }}">Contests &amp; prizes</a></li>
+          <li><a href="{{ '/careers/' | relative_url }}">Careers</a></li>
+          <li><a href="{{ '/support/' | relative_url }}">Donate / support</a></li>
+          <li><a href="{{ '/advertise/' | relative_url }}">Advertise</a></li>
+          <li><a href="{{ site.partner_contact_url }}" target="_blank" rel="noopener">Partnerships</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+          <li><a href="{{ '/safety/' | relative_url }}">Trust &amp; Safety</a></li>
+          <li><a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a></li>
+          <li><a href="{{ '/terms/' | relative_url }}">Terms of Use</a></li>
+          <li><a href="{{ '/disclaimer/' | relative_url }}">Disclaimer &amp; Trademarks</a></li>
+          <li><a href="#" data-cookie-settings>Cookie settings</a></li>
+          <li><a href="{{ '/sitemap.xml' | relative_url }}">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="eho">{% include icon.html name="home" %} Equal Housing Opportunity — we support the Fair Housing Act and do not accept discriminatory listings.</span>
+      <p class="footer-legal">
+        <strong>Trademark &amp; copyright notice:</strong> &copy; {{ site.time | date: '%Y' }} ByOwners.com. All original content, design and code on this site are protected by copyright. ByOwners.com is an independent website and is <strong>not affiliated with, endorsed by, or sponsored by</strong> ByOwner, ForSaleByOwner.com, FSBO.com, Owners.com, Vrbo, Expedia Group, Zillow, Realtor.com, the National Association of REALTORS&reg;, any MLS, or any other company. &ldquo;By owner&rdquo; is used in its ordinary descriptive sense. All third-party trademarks, names and logos belong to their respective owners and are used only for identification. ByOwners.com is not a real estate broker, lender, law firm or escrow agent and does not provide legal, tax or financial advice. <a href="{{ '/disclaimer/' | relative_url }}">Full disclaimer</a>.
+      </p>
+      <p class="footer-legal">This site uses cookies and shows ads from Google AdSense. <a href="{{ '/privacy/' | relative_url }}">Learn how we use data</a>. Content updated {{ site.time | date: '%B %-d, %Y' }}.</p>
+    </div>
+  </div>
+</footer>

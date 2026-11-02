@@ -1,0 +1,26 @@
+<form class="wizard" id="readinessQuiz" data-quiz novalidate>
+  <div class="wizard-top"><span data-q-label>Question 1 of 8</span><span>{% include icon.html name="clock" %} About 1 minute</span></div>
+  <div class="progress"><span data-q-bar></span></div>
+  {% assign qs = "How flexible is your timeline?|ASAP — I need to close in under 30 days:1|1–3 months is fine:2|I can wait for the right buyer:3;;How much time can you spend on showings and calls each week?|Under 2 hours:0|2–5 hours:2|5+ hours, I'm available:3;;How comfortable are you negotiating price and repairs?|Not at all — I avoid conflict:0|Somewhat:2|Very — I negotiate for a living:3;;How well do you know recent sale prices nearby?|No idea:0|Roughly:1|I've studied the comps closely:3;;How hot is your local market?|Slow — homes sit for months:0|Balanced:2|Hot — homes sell in days:3;;How would you handle contracts and disclosures?|I'd wing it:0|I'd use state forms + read carefully:2|I'll hire a real estate attorney or title company:3;;How easy is your home to show and photograph?|Needs major work:0|Some cleanup needed:2|Move-in ready:3;;What matters most to you?|Least hassle, whatever it costs:0|A balance of savings and support:2|Keeping the most money:3" | split: ";;" %}
+  {% for q in qs %}{% assign parts = q | split: "|" %}
+  <div class="step{% if forloop.first %} active{% endif %}" data-q>
+    <h3>{{ parts[0] }}</h3>
+    <div class="options cols-1">
+      {% for o in parts offset:1 %}{% assign op = o | split: ":" %}
+      <div class="option"><input type="radio" id="q{{ forloop.parentloop.index }}-{{ forloop.index }}" name="q{{ forloop.parentloop.index }}" value="{{ op[1] }}"><label for="q{{ forloop.parentloop.index }}-{{ forloop.index }}">{{ op[0] }}</label></div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+  <div class="step" data-q-result>
+    <div class="center">
+      <span class="badge badge-brand">Your readiness score</span>
+      <div class="result-big" style="color:var(--brand-600)" data-q-score>0</div>
+      <h3 data-q-title>—</h3>
+      <p class="muted" data-q-text>—</p>
+      <div class="flex" style="justify-content:center" data-q-links></div>
+      <button type="button" class="btn btn-ghost btn-sm mt-2" data-q-restart>{% include icon.html name="refresh" %} Retake</button>
+    </div>
+  </div>
+  <div class="wizard-nav"><button type="button" class="btn btn-ghost" data-q-back>{% include icon.html name="arrow-left" %} Back</button><span class="tiny muted">Pick an answer to continue</span></div>
+</form>
