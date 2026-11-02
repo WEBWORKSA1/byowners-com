@@ -1,0 +1,12 @@
+---
+layout: null
+permalink: /search.json
+sitemap: false
+---
+[{% for g in site.guides %}
+  {"type":"Guide","title":{{ g.title | jsonify }},"url":"{{ g.url | relative_url }}","description":{{ g.description | jsonify }},"category":{{ site.data.guide_categories[g.category].label | jsonify }},"keywords":{{ g.tags | join: " " | jsonify }}},{% endfor %}{% for t in site.data.tools %}
+  {"type":"Tool","title":{{ t.title | jsonify }},"url":"{{ '/tools/' | append: t.slug | append: '/' | relative_url }}","description":{{ t.desc | jsonify }},"category":"Calculators","keywords":"calculator tool"},{% endfor %}{% for l in site.listings %}
+  {"type":"Listing","title":{{ l.title | jsonify }},"url":"{{ l.url | relative_url }}","description":{{ l.city | append: ", " | append: l.state | jsonify }},"category":"Listings","keywords":{{ l.category | append: " " | append: l.zip | jsonify }}},{% endfor %}{% for p in site.pages %}{% if p.title %}{% unless p.url contains '.json' or p.url contains '.xml' or p.url contains '.txt' or p.noindex or p.url == '/404.html' or p.url == '/' %}
+  {"type":"Page","title":{{ p.title | jsonify }},"url":"{{ p.url | relative_url }}","description":{{ p.description | default: p.lead | jsonify }},"category":"Pages","keywords":{{ p.keywords | jsonify }}},{% endunless %}{% endif %}{% endfor %}
+  {"type":"Page","title":"ByOwners.com Home","url":"{{ '/' | relative_url }}","description":{{ site.description | strip | jsonify }},"category":"Pages","keywords":"home by owner marketplace"}
+]

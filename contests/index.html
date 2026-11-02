@@ -1,0 +1,76 @@
+---
+layout: page
+title: "Contests & Prizes for Owners and Creators"
+crumb: "Contests"
+eyebrow: "Win, get featured, get paid"
+eyebrow_icon: award
+h1: "Contests & prizes"
+lead: "Show off your listing photos, share how you sold or rented by owner, or make a 60-second tip video. Winners get featured placement, free upgrades and sponsor-funded prizes."
+description: "ByOwners.com contests: best by-owner listing photo, owner success story, creator challenge and ambassador referral challenge. Prizes, rules and entry form."
+---
+<section class="section" style="padding-top:28px">
+  <div class="container">
+    <div class="grid grid-2">
+      {% for c in site.data.contests %}
+      <div class="card" id="{{ c.key }}">
+        <div class="flex-between"><div class="card-icon warm" style="margin:0">{% include icon.html name=c.icon class="ic-lg" %}</div><span class="badge {% if c.status contains 'Open' or c.status contains 'Accepting' %}badge-brand{% else %}badge-accent{% endif %}">{{ c.status }}</span></div>
+        <h3 class="mt-2">{{ c.title }}</h3>
+        <p>{{ c.desc }}</p>
+        <p class="small mt-1"><strong>Cadence:</strong> {{ c.cadence }} · <strong>Judging:</strong> {{ c.judging }}</p>
+        <ul class="ticks">{% for p in c.prizes %}<li>{% include icon.html name="gift" %}<span>{{ p }}</span></li>{% endfor %}</ul>
+        <a class="btn btn-outline btn-sm" href="#enter" onclick="var s=document.getElementById('ct-c');if(s){s.value='{{ c.title }}'}">Enter this contest</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section lead-section" id="enter">
+  <div class="container split" style="align-items:start">
+    <div>
+      <h2>Enter a contest</h2>
+      <p class="lead">Free to enter. Share a link to your photo, story or video — Google Drive, Dropbox, YouTube or your listing.</p>
+      <div class="card mt-2">
+        <h3>{% include icon.html name="gift" %} Sponsor a prize</h3>
+        <p>Put your brand in front of motivated owners, buyers and renters. Fund a round's cash prize and get named sponsorship on the contest, the winner announcement and our newsletter.</p>
+        <div class="flex mt-2"><a class="btn btn-accent btn-sm" href="{{ '/advertise/' | relative_url }}#inquiry">Sponsor a contest</a><a class="btn btn-outline btn-sm" href="{{ '/support/' | relative_url }}">Donate to the prize pool</a></div>
+      </div>
+    </div>
+    <form class="card" data-form="contest-entry" data-subject="Contest entry" novalidate>
+      <div class="field"><label for="ct-c">Contest</label><select id="ct-c" name="contest" required>{% for c in site.data.contests %}<option>{{ c.title }}</option>{% endfor %}</select></div>
+      <div class="form-row">
+        <div class="field"><label for="ct-n">Full name</label><input id="ct-n" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="ct-e">Email</label><input id="ct-e" name="email" type="email" required autocomplete="email"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="ct-s">State</label><input id="ct-s" name="state" maxlength="2" required></div>
+        <div class="field"><label for="ct-a">Age</label><select id="ct-a" name="age_18_plus" required><option value="">Choose…</option><option value="yes">18 or older</option><option value="no">Under 18</option></select></div>
+      </div>
+      <div class="field"><label for="ct-l">Link to your entry</label><input id="ct-l" name="entry_link" type="url" placeholder="https://" required></div>
+      <div class="field"><label for="ct-d">Tell us about it</label><textarea id="ct-d" name="description" rows="4" required></textarea></div>
+      <label class="check"><input type="checkbox" name="rights" value="yes" required> <span>I created this entry, have the rights to share it, and grant ByOwners.com permission to feature it with credit.</span></label>
+      <label class="check"><input type="checkbox" name="rules" value="yes" required> <span>I have read and agree to the <a href="#rules">Official Rules</a>.</span></label>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary btn-block" type="submit">Submit entry</button>
+    </form>
+  </div>
+</section>
+
+<section class="section" id="rules">
+  <div class="container container-sm legal prose">
+    <h2>Official rules (summary)</h2>
+    <p><strong>NO PURCHASE OR PAYMENT NECESSARY TO ENTER OR WIN.</strong> A purchase or donation does not improve your chances of winning. Void where prohibited.</p>
+    <ol>
+      <li><strong>Eligibility.</strong> Open to legal residents of the 50 United States and D.C. who are 18 or older at entry. Employees of ByOwners.com and contest sponsors, and their immediate families, are not eligible.</li>
+      <li><strong>How to enter.</strong> Submit the entry form above during an open round. Limit one entry per person per round unless the contest page says otherwise.</li>
+      <li><strong>Judging.</strong> These are skill-based contests. Entries are judged by ByOwners.com editors on the criteria listed for each contest. Decisions are final.</li>
+      <li><strong>Prizes.</strong> Prizes are as listed for each round. Sponsor-funded cash prizes are announced on this page before a round opens; if a round has no funded cash prize, it is not offered for that round. No prize transfer or cash substitution except at our discretion; we may substitute a prize of equal or greater value. Winners are responsible for any taxes.</li>
+      <li><strong>Winner notification.</strong> Winners are notified by email within 30 days after a round closes and must respond within 14 days, or an alternate may be selected.</li>
+      <li><strong>Rights.</strong> You keep ownership of your entry and grant ByOwners.com a non-exclusive, royalty-free license to display it with credit on our site, newsletter and social channels.</li>
+      <li><strong>Conduct.</strong> Entries must be original, lawful, and free of discriminatory, misleading or infringing content. We may disqualify entries that violate these rules.</li>
+      <li><strong>Privacy.</strong> Entry information is handled under our <a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a>.</li>
+      <li><strong>Sponsor.</strong> ByOwners.com. Contact us through our <a href="{{ '/contact/' | relative_url }}">contact page</a>.</li>
+    </ol>
+    <p class="small muted">Contest laws vary by state. ByOwners.com may update these rules for future rounds; the version posted when a round opens governs that round.</p>
+  </div>
+</section>
