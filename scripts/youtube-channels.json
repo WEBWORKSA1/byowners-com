@@ -1,0 +1,38 @@
+[
+  {
+    "name": "BiggerPockets",
+    "channel_id": "UCVWDbXqQ8cupuVpotWNt2eg",
+    "focus": "Real estate investing, rentals and landlording education",
+    "category": "renting"
+  },
+  {
+    "name": "Real Estate Rookie",
+    "channel_id": "UCCA5VL6_GTfTY9I-V7QUcJw",
+    "focus": "Beginner real estate investing and first-time landlords",
+    "category": "renting"
+  },
+  {
+    "name": "BiggerPockets Money",
+    "channel_id": "UC2cfzvGC8CJNWtvaynN7TeA",
+    "focus": "Personal finance, housing costs and wealth building",
+    "category": "money"
+  },
+  {
+    "name": "Federal Trade Commission",
+    "channel_id": "UCT-0Lw1AytpgikOiEwLvLZw",
+    "focus": "Consumer protection and scam alerts",
+    "category": "safety"
+  },
+  {
+    "name": "Clark Howard",
+    "channel_id": "UCRcNI4bLa8Njwuo3OTmxZjA",
+    "focus": "Consumer money advice, saving and scam avoidance",
+    "category": "money"
+  },
+  {
+    "name": "Consumer Reports",
+    "channel_id": "UCOClvgLYa7g75eIaTdwj_vg",
+    "focus": "Consumer advice, car buying/selling and fraud warnings",
+    "category": "vehicles"
+  }
+]

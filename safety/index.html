@@ -1,0 +1,49 @@
+---
+layout: page
+title: "Trust & Safety Center: Avoid Real Estate & Rental Scams"
+crumb: "Trust & Safety"
+eyebrow: "Trust & Safety"
+eyebrow_icon: shield
+h1: "Trust & Safety: deal directly, deal safely"
+lead: "How we review listings, the scam patterns we see most, and exactly what to do if something feels wrong. Report any listing in one minute."
+description: "ByOwners.com Trust & Safety: how listings are reviewed, real estate and rental scam red flags, wire fraud prevention, and a form to report suspicious listings."
+---
+<section class="section" style="padding-top:28px">
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="card"><div class="card-icon">{% include icon.html name="users" class="ic-lg" %}</div><h3>Human-reviewed listings</h3><p>Every listing is checked before publishing for ownership signals, accuracy, duplicate or copied photos, and fair-housing compliance.</p></div>
+      <div class="card"><div class="card-icon sky">{% include icon.html name="lock" class="ic-lg" %}</div><h3>Private messaging</h3><p>Inquiries are relayed through ByOwners, so owners don't publish phone numbers or emails that scammers harvest.</p></div>
+      <div class="card"><div class="card-icon rose">{% include icon.html name="alert" class="ic-lg" %}</div><h3>Fast takedowns</h3><p>Reported listings are reviewed promptly and removed when they look fraudulent, misleading or discriminatory.</p></div>
+    </div>
+
+    <div class="section-head left mt-4"><h2>Top red flags</h2><p>If you see any of these, stop and verify before you pay or share personal information.</p></div>
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Red flag</th><th>Why it matters</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr><td>“Owner” is out of the country and can't show the property</td><td>Classic rental scam — the listing is often copied from a real one</td><td>Insist on an in-person or live video tour; verify ownership in county records</td></tr>
+        <tr><td>Deposit requested by wire, gift card, crypto or payment app before a tour</td><td>These payments are nearly impossible to reverse</td><td>Pay deposits only after signing a lease or contract, through traceable methods</td></tr>
+        <tr><td>Rent or price far below comparable properties</td><td>Too-good-to-be-true pricing lures quick decisions</td><td>Compare with similar listings; ask why</td></tr>
+        <tr><td>Last-minute change to closing wiring instructions</td><td>Business email compromise targets real estate closings</td><td>Call your title company or attorney at a number you looked up yourself</td></tr>
+        <tr><td>Buyer overpays and asks you to refund the difference</td><td>The original check or payment will bounce after you refund</td><td>Never refund overpayments; accept only verified funds</td></tr>
+        <tr><td>Pressure to act today and skip inspections or paperwork</td><td>Urgency prevents verification</td><td>Slow down. Legitimate parties accept normal due diligence</td></tr>
+      </tbody>
+    </table></div>
+    <p class="mt-2">Read the full guide: <a href="{{ '/guides/avoid-scams-buying-selling-renting-by-owner/' | relative_url }}">How to avoid scams when buying, selling or renting by owner →</a></p>
+
+    <div class="split mt-4" style="align-items:start" id="report">
+      <div>
+        <h2>Report a listing or user</h2>
+        <p>Tell us what you saw. We review every report. If you've lost money, also report it to the <a href="https://reportfraud.ftc.gov/" target="_blank" rel="noopener">FTC</a> and, for internet or wire fraud, the <a href="https://www.ic3.gov/" target="_blank" rel="noopener">FBI's IC3</a>, and contact your bank immediately.</p>
+        <div class="notice-brand">{% include icon.html name="home" %} <strong>Fair housing:</strong> We do not accept listings that state a preference, limitation or discrimination based on protected characteristics. Report discriminatory content here, and learn your rights at HUD's fair housing site via our <a href="{{ '/resources/' | relative_url }}">resources page</a>.</div>
+      </div>
+      <form class="card" data-form="report" data-subject="Trust & Safety report" novalidate>
+        <div class="field"><label for="rp-id">Listing ID or URL</label><input id="rp-id" name="listing" data-prefill="report" required></div>
+        <div class="field"><label for="rp-type">Issue</label><select id="rp-type" name="issue" required><option value="">Choose…</option><option>Suspected scam / fraud</option><option>Not the real owner</option><option>Inaccurate details or photos</option><option>Discriminatory language</option><option>Already sold / rented</option><option>Other</option></select></div>
+        <div class="field"><label for="rp-d">What happened?</label><textarea id="rp-d" name="details" rows="4" required></textarea></div>
+        <div class="field"><label for="rp-e">Your email <span class="muted">(optional, for follow-up)</span></label><input id="rp-e" name="email" type="email"></div>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-primary btn-block" type="submit">Send report</button>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+---
+layout: null
+permalink: /robots.txt
+sitemap: false
+---
+User-agent: *
+Allow: /
+Disallow: /search/?
+Disallow: /thanks/
+
+User-agent: Mediapartners-Google
+Allow: /
+
+Sitemap: {{ site.url }}/sitemap.xml
