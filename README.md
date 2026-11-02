@@ -25,13 +25,16 @@ Static site built with **Jekyll** and hosted free on **GitHub Pages** from the `
 
    The `CNAME` file in this repo already sets the custom domain to `byowners.com`. Once DNS resolves, go to **Settings → Pages** and tick **Enforce HTTPS**.
 3. **Activate the forms (important):** all forms post through FormSubmit to the site's private inbox, and that address is never shown on the site. After the site is live, submit any form once (the newsletter box in the footer is fine). FormSubmit then emails the inbox an **"Activate Form"** link. Click it. Submissions are delivered after activation.
-4. **Allow the automation to run:** go to **Settings → Actions → General → Workflow permissions** and select **Read and write permissions**. Then open **Actions → "Auto-update content" → Run workflow** once. This step:
-   - renders the social share image and PNG icons,
-   - pulls the latest housing, mortgage, rental and scam headlines,
-   - pulls the Freddie Mac 30- and 15-year mortgage rate averages,
-   - checks the curated YouTube videos and the latest uploads from trusted channels.
+4. **Switch on the automation (about 2 minutes):**
+   1. In the repo, click **Add file → Create new file**, name it `.github/workflows/update-content.yml`, and paste in the contents of [`project-docs/automation/update-content.yml`](project-docs/automation/update-content.yml). Commit it. (GitHub only lets the repo owner add workflow files, which is why it isn't already in place.)
+   2. Go to **Settings → Actions → General → Workflow permissions**, select **Read and write permissions**, and save.
+   3. Open **Actions → "Auto-update content" → Run workflow** once. This run:
+      - renders the social share image and PNG icons,
+      - pulls the latest housing, mortgage, rental and scam headlines,
+      - pulls the Freddie Mac 30- and 15-year mortgage rate averages,
+      - checks the curated YouTube videos and the latest uploads from trusted channels.
 
-   After that it runs daily on its own.
+      After that it runs daily on its own.
 5. **Google AdSense:**
    - The AdSense script (`ca-pub-6620975821265271`) is in the `<head>` of every page.
    - `ads.txt` is at the site root.

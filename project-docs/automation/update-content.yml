@@ -1,0 +1,60 @@
+name: Auto-update content (news, rates, videos, images)
+
+on:
+  schedule:
+    - cron: "17 11 * * *"     # daily at 11:17 UTC
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - ".github/workflows/update-content.yml"
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: update-content
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Render share image & icons (only if missing)
+        run: bash scripts/render-images.sh
+
+      - name: Refresh news, mortgage rates and videos
+        run: node scripts/update-content.mjs
+
+      - name: Commit & push changes
+        run: |
+          git config user.name "byowners-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data assets/img
+          if git diff --cached --quiet; then
+            echo "No content changes."
+            echo "CHANGED=0" >> "$GITHUB_ENV"
+          else
+            git commit -m "chore(content): auto-update $(date -u +%Y-%m-%d)"
+            git pull --rebase origin main
+            git push origin HEAD:main
+            echo "CHANGED=1" >> "$GITHUB_ENV"
+          fi
+
+      - name: Request GitHub Pages rebuild
+        if: env.CHANGED == '1'
+        continue-on-error: true
+        run: |
+          curl -fsS -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/builds" || echo "Pages rebuild request skipped"
