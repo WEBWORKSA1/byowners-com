@@ -1,0 +1,5 @@
+- { amount: 5,   name: "Coffee",          desc: "Keeps the lights on for a day" }
+- { amount: 25,  name: "Supporter",       desc: "Funds a new free guide" }
+- { amount: 50,  name: "Advocate",        desc: "Sponsors a contest prize" }
+- { amount: 100, name: "Champion",        desc: "Funds a month of owner promotion" }
+- { amount: 500, name: "Founding Patron", desc: "Name on our Founders wall" }
