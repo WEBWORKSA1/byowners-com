@@ -1,0 +1,42 @@
+---
+layout: default
+extra_js: ["/assets/js/calculators.js"]
+tool_schema: true
+---
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Home</a> {% include icon.html name="chevron-right" %} <a href="{{ '/tools/' | relative_url }}">Tools</a> {% include icon.html name="chevron-right" %} <span>{{ page.title }}</span></nav>
+    <span class="eyebrow">{% include icon.html name="calc" %} Free tool · No sign-up</span>
+    <h1>{{ page.h1 | default: page.title }}</h1>
+    <p class="lead">{{ page.lead }}</p>
+  </div>
+</section>
+<section class="section" style="padding-top:36px">
+  <div class="container">
+    <div id="calc-{{ page.calc }}" data-calc="{{ page.calc }}">
+      {% include calcs/{{ page.calc }}.html %}
+    </div>
+    <p class="tiny muted mt-2">{% include icon.html name="info" %} Estimates for planning only — not a loan offer, appraisal or tax advice. Results depend on the numbers you enter.</p>
+  </div>
+</section>
+{% include ad.html slot="in_feed" %}
+<section class="section section-soft">
+  <div class="container container-sm">
+    <div class="prose">{{ content }}</div>
+    {% if page.faqs %}
+    <h2 class="mt-4">FAQ</h2>
+    <div class="faq">{% for f in page.faqs %}<details><summary>{{ f.q }}</summary><div class="ans"><p>{{ f.a }}</p></div></details>{% endfor %}</div>
+    {% endif %}
+    {% include lead-cta.html type=page.cta %}
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head left"><span class="eyebrow">{% include icon.html name="calc" %} More free tools</span><h2>Keep crunching the numbers</h2></div>
+    <div class="grid grid-3">
+      {% for t in site.data.tools %}{% if t.slug != page.slug_tool %}
+      <a class="card hover tool-card" href="{{ '/tools/' | append: t.slug | append: '/' | relative_url }}"><div class="card-icon {{ t.color }}">{% include icon.html name=t.icon class="ic-lg" %}</div><div><h3>{{ t.title }}</h3><p>{{ t.desc }}</p></div></a>
+      {% endif %}{% endfor %}
+    </div>
+  </div>
+</section>

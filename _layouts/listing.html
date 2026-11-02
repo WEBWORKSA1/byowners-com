@@ -1,0 +1,108 @@
+---
+layout: default
+extra_css: ["https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"]
+extra_ext_js: ["https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"]
+extra_js: ["/assets/js/listings.js"]
+---
+{%- assign cat = site.data.listing_categories | where: "key", page.category | first -%}
+<section class="section" style="padding-top:28px">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Home</a> {% include icon.html name="chevron-right" %} <a href="{{ '/listings/' | relative_url }}">Listings</a> {% include icon.html name="chevron-right" %} <a href="{{ cat.url | relative_url }}">{{ cat.label }}</a></nav>
+    {% if page.sample %}
+    <div class="sample-banner">{% include icon.html name="info" %} SAMPLE LISTING — this example shows how an owner listing looks on ByOwners.com. It is not a real property for sale or rent.</div>
+    {% endif %}
+    <div class="l-cover listing-hero-cover c-{{ page.category }}"{% if page.image %} style="background-image:url('{{ page.image }}')"{% endif %}>
+      {% unless page.image %}{% include icon.html name=cat.icon %}{% endunless %}
+      <div class="l-badges">
+        {% if page.sample %}<span class="badge badge-sample">Sample</span>{% endif %}
+        {% if page.featured %}<span class="badge badge-feat">Featured</span>{% endif %}
+        <span class="badge">{{ cat.label }}</span>
+        <span class="badge">By owner</span>
+      </div>
+      <button class="fav-btn" data-fav="{{ page.slug | default: page.title | slugify }}" aria-label="Save listing">{% include icon.html name="heart" %}</button>
+    </div>
+
+    <div class="with-sidebar mt-3">
+      <div>
+        <div class="flex-between">
+          <div>
+            <div class="l-price" style="font-size:2rem">{% if page.price %}<span data-money="{{ page.price }}">${{ page.price }}</span>{% else %}Contact owner{% endif %}{% if cat.unit != "" %}<small>{{ cat.unit }}</small>{% endif %}</div>
+            <h1 style="font-size:clamp(1.5rem,3vw,2.1rem);margin:6px 0">{{ page.title }}</h1>
+            <p class="l-loc">{% include icon.html name="pin" %} {{ page.city }}, {{ page.state }} {{ page.zip }}</p>
+          </div>
+          <div class="share-row no-print">
+            <button class="btn btn-outline btn-sm" data-share>{% include icon.html name="share" %} Share</button>
+            <button class="btn btn-outline btn-sm" onclick="window.print()">{% include icon.html name="printer" %} Print</button>
+          </div>
+        </div>
+
+        <div class="fact-grid mt-2">
+          {% if page.beds %}<div class="fact"><div class="k">Beds</div><div class="v">{{ page.beds }}</div></div>{% endif %}
+          {% if page.baths %}<div class="fact"><div class="k">Baths</div><div class="v">{{ page.baths }}</div></div>{% endif %}
+          {% if page.sqft %}<div class="fact"><div class="k">Sq ft</div><div class="v">{{ page.sqft }}</div></div>{% endif %}
+          {% if page.lot %}<div class="fact"><div class="k">Lot</div><div class="v">{{ page.lot }}</div></div>{% endif %}
+          {% if page.year %}<div class="fact"><div class="k">Year</div><div class="v">{{ page.year }}</div></div>{% endif %}
+          {% if page.mileage %}<div class="fact"><div class="k">Mileage</div><div class="v">{{ page.mileage }}</div></div>{% endif %}
+          {% if page.revenue %}<div class="fact"><div class="k">Revenue</div><div class="v">{{ page.revenue }}</div></div>{% endif %}
+          <div class="fact"><div class="k">Listing ID</div><div class="v">{{ page.listing_id | default: page.slug }}</div></div>
+          <div class="fact"><div class="k">Listed</div><div class="v">{{ page.posted | date: '%b %-d' }}</div></div>
+          <div class="fact"><div class="k">Expires</div><div class="v">{{ page.expires | date: '%b %-d' }}</div></div>
+        </div>
+
+        <div class="prose mt-3">
+          <h2 style="margin-top:0">About this {{ cat.short | downcase }}</h2>
+          {{ content }}
+          {% if page.features %}
+          <h3>Highlights</h3>
+          <ul>{% for f in page.features %}<li>{{ f }}</li>{% endfor %}</ul>
+          {% endif %}
+          {% if page.open_house %}<p><strong>Open house:</strong> {{ page.open_house }}</p>{% endif %}
+        </div>
+
+        {% if page.lat and page.lng %}
+        <h3 class="mt-3">Approximate location</h3>
+        <div class="map" id="listingMap" data-lat="{{ page.lat }}" data-lng="{{ page.lng }}" data-title="{{ page.title | escape }}" style="height:320px"></div>
+        <p class="tiny muted mt-1">Map shows the general area only. Exact address is shared by the owner after you connect.</p>
+        {% endif %}
+
+        {% if page.category == 'home-sale' and page.price %}
+        <div class="card mt-3">
+          <h3>{% include icon.html name="calc" %} Estimated monthly payment</h3>
+          <p>With 10% down at <span data-rate30>the current average</span> 30-year fixed rate. <a href="{{ '/tools/mortgage-calculator/' | relative_url }}?price={{ page.price }}">Customize in the mortgage calculator →</a></p>
+          <div class="l-price mt-1" data-mini-mortgage="{{ page.price }}">—</div>
+        </div>
+        {% endif %}
+        {% include ad.html slot="in_feed" %}
+      </div>
+
+      <aside>
+        <div class="sticky-side">
+          <div class="widget" id="contact-owner">
+            <h3>{% include icon.html name="message" %} Contact the owner</h3>
+            <p class="small muted">Your message is relayed privately by ByOwners.com. The owner replies directly to you.</p>
+            <form data-form="inquiry" data-subject="Listing inquiry: {{ page.title | escape }} ({{ page.listing_id | default: page.slug }})" novalidate>
+              <input type="hidden" name="listing" value="{{ page.title | escape }} — {{ page.url | absolute_url }}">
+              <div class="field"><label for="iqName">Name</label><input id="iqName" name="name" required autocomplete="name"></div>
+              <div class="field"><label for="iqEmail">Email</label><input id="iqEmail" name="email" type="email" required autocomplete="email"></div>
+              <div class="field"><label for="iqPhone">Phone <span class="muted">(optional)</span></label><input id="iqPhone" name="phone" type="tel" autocomplete="tel"></div>
+              <div class="field"><label for="iqMsg">Message</label><textarea id="iqMsg" name="message" rows="4" required>Hi, I'm interested in "{{ page.title }}". Is it still available?</textarea></div>
+              {% if page.category == 'home-sale' or page.category == 'land' %}
+              <label class="check"><input type="checkbox" name="wants_lender" value="yes"> I'd also like a free mortgage pre-approval quote</label>
+              {% endif %}
+              <div class="notice small mb-2">{% include icon.html name="alert" %} <strong>Safety first:</strong> never wire money or pay a deposit before you've seen the property and verified ownership. <a href="{{ '/safety/' | relative_url }}">Scam red flags</a></div>
+              <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <button class="btn btn-primary btn-block" type="submit">Send message</button>
+              <p class="consent mt-1">By sending, you agree to our <a href="{{ '/terms/' | relative_url }}">Terms</a> and <a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a>.</p>
+            </form>
+          </div>
+          <div class="widget">
+            <h3>{% include icon.html name="shield" %} Something wrong?</h3>
+            <p class="small muted">Report suspected fraud, discrimination or inaccurate details.</p>
+            <a class="btn btn-outline btn-sm" href="{{ '/safety/' | relative_url }}?report={{ page.listing_id | default: page.slug }}#report">Report this listing</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+{% include newsletter.html id="l" %}
