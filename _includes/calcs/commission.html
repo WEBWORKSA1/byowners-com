@@ -1,0 +1,22 @@
+<div class="calc">
+  <div class="calc-panel">
+    <h3>Your numbers</h3>
+    {% include calcs/range.html k="price" label="Expected sale price" unit="$" min=50000 max=3000000 step=5000 value=400000 %}
+    {% include calcs/range.html k="comm" label="Traditional total commission" unit="%" min=0 max=8 step=0.1 value=5.5 hint="Commissions are negotiable. Enter the total you'd expect to pay with a full-service listing." %}
+    {% include calcs/range.html k="buyerAgent" label="Buyer-agent fee you'd still offer (if any)" unit="%" min=0 max=4 step=0.1 value=2.5 hint="Optional — many owners offer it to attract agent-represented buyers; some don't." %}
+    {% include calcs/range.html k="diy" label="Your by-owner costs" unit="$" min=0 max=10000 step=50 value=1500 hint="Flat-fee MLS, attorney/contract review, photos, signs." %}
+    {% include calcs/share.html %}
+  </div>
+  <div class="calc-result" aria-live="polite">
+    <span class="badge badge-accent">You could keep</span>
+    <div class="result-big" data-o="savings">$0</div>
+    <p style="color:#94a3b8;margin:0">compared with a traditional listing at the commission you entered.</p>
+    <div class="result-rows">
+      <div class="result-row"><span>Traditional commission cost</span><b data-o="trad">$0</b></div>
+      <div class="result-row"><span>By-owner cost (buyer-agent fee + your costs)</span><b data-o="fsbo">$0</b></div>
+      <div class="result-row"><span>Savings as % of sale price</span><b data-o="pct">0%</b></div>
+    </div>
+    <div class="chart-wrap" data-chart="bars"></div>
+    <a class="btn btn-accent btn-block mt-3" href="{{ '/get-started/' | relative_url }}?goal=sell" data-track="calc-commission-cta">Get my free by-owner plan {% include icon.html name="arrow-right" %}</a>
+  </div>
+</div>

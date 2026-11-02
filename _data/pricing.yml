@@ -1,0 +1,37 @@
+# Listing plans. Payment is collected by invoice after review (no card data on this site).
+- name: "Free Listing"
+  price: "$0"
+  period: "forever"
+  cta: "List for free"
+  plan: free
+  popular: false
+  features:
+    - "Full listing page with photos & description"
+    - "Buyer/renter inquiries relayed to you"
+    - "Map placement & category search"
+    - "Owner toolkit: checklist, calculators, guides"
+    - "Scam-screened inquiries"
+- name: "Featured"
+  price: "$39"
+  period: "30 days"
+  cta: "Get featured"
+  plan: featured
+  popular: true
+  features:
+    - "Everything in Free"
+    - "Top placement in your category & state"
+    - "Featured badge + homepage rotation"
+    - "Included in the weekly new-listings email"
+    - "Listing copy polish by our editors"
+- name: "Spotlight"
+  price: "$99"
+  period: "60 days"
+  cta: "Book Spotlight"
+  plan: spotlight
+  popular: false
+  features:
+    - "Everything in Featured"
+    - "Dedicated Owner Spotlight article"
+    - "Social media promotion"
+    - "Priority matching with vetted pros (MLS, attorney, photos)"
+    - "Performance report at day 30"

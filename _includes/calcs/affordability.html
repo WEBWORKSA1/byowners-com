@@ -1,0 +1,30 @@
+<div class="calc">
+  <div class="calc-panel">
+    <h3>Income &amp; debts</h3>
+    {% include calcs/range.html k="income" label="Gross annual household income" unit="$" min=20000 max=1000000 step=1000 value=110000 %}
+    {% include calcs/range.html k="debts" label="Monthly debt payments" unit="$" min=0 max=10000 step=25 value=600 hint="Car, student loan, card minimums, child support — not rent." %}
+    {% include calcs/range.html k="down" label="Cash for down payment" unit="$" min=0 max=1000000 step=1000 value=40000 %}
+    {% include calcs/range.html k="rate" label="Interest rate" unit="% APR" min=1 max=15 step=0.05 value=6.5 %}
+    <div class="form-row">
+      <div class="field"><label for="f-term">Loan term</label><select id="f-term" data-k="term"><option value="30" selected>30 years</option><option value="15">15 years</option></select></div>
+      {% include calcs/num.html k="taxPct" label="Property tax" unit="%/yr" value=1.1 step=0.05 %}
+      {% include calcs/num.html k="ins" label="Insurance" unit="$/yr" value=1800 %}
+      {% include calcs/num.html k="hoa" label="HOA" unit="$/mo" value=0 %}
+      {% include calcs/num.html k="front" label="Max housing ratio" unit="% of income" value=28 step=1 %}
+      {% include calcs/num.html k="back" label="Max total debt ratio" unit="% of income" value=36 step=1 %}
+    </div>
+    {% include calcs/share.html %}
+  </div>
+  <div class="calc-result" aria-live="polite">
+    <span class="badge badge-accent">You can comfortably afford about</span>
+    <div class="result-big" data-o="maxPrice">$0</div>
+    <p style="color:#94a3b8;margin:0">Based on the stricter of your housing and total-debt ratios.</p>
+    <div class="result-rows">
+      <div class="result-row"><span>Max monthly housing payment</span><b data-o="maxPay">$0</b></div>
+      <div class="result-row"><span>Loan amount</span><b data-o="loan">$0</b></div>
+      <div class="result-row"><span>Down payment share</span><b data-o="downPct">0%</b></div>
+      <div class="result-row"><span>Limiting factor</span><b data-o="limit">—</b></div>
+    </div>
+    <a class="btn btn-accent btn-block mt-3" href="{{ '/get-started/' | relative_url }}?goal=buy" data-track="calc-afford-cta">Get alerts for by-owner homes in budget</a>
+  </div>
+</div>
