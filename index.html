@@ -1,0 +1,274 @@
+---
+layout: default
+title: "ByOwners.com — Buy, Sell & Rent Directly From Owners"
+description: "List your home, rental, land, vehicle or business free. Buy and rent directly from owners, use pro-grade calculators, and follow step-by-step guides to keep the commission."
+extra_js: ["/assets/js/calculators.js", "/assets/js/listings.js"]
+faqs:
+  - q: "Is it really free to list on ByOwners.com?"
+    a: "Yes. A standard listing is free, with no commission and no success fee. Optional Featured and Spotlight upgrades add top placement and promotion for owners who want more exposure."
+  - q: "Can I sell my home without a real estate agent?"
+    a: "Yes. Owners can legally sell their own homes in every U.S. state. Some states require or customarily use an attorney for closing, and every seller must follow disclosure laws. Our guides and checklist walk you through each step."
+  - q: "How do buyers and renters contact owners?"
+    a: "Through a private message form on each listing. ByOwners.com relays inquiries so owners don't have to publish personal contact details, and every inquiry includes a scam-safety reminder."
+  - q: "How does ByOwners.com make money?"
+    a: "Through advertising, optional listing upgrades, sponsorships, flat-fee advertising from vetted service providers, and reader support. We never charge owners a commission."
+  - q: "Do you verify listings?"
+    a: "Every listing is reviewed by a person before it goes live, and visitors can report any listing. We remove listings that look fraudulent, inaccurate or discriminatory."
+  - q: "Is ByOwners.com a real estate broker?"
+    a: "No. We are an independent marketplace and education site. We don't represent buyers or sellers, hold deposits, or give legal advice — we help you find the right licensed pros when you need them."
+---
+<!-- ======================= HERO ======================= -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow"><span class="pulse-dot"></span> The owner-to-owner marketplace</span>
+      <h1>Buy, sell &amp; rent <span class="hl">directly from owners.</span> Keep the commission.</h1>
+      <p class="lead">List your home, rental, land, vehicle or business free. Find by-owner deals before they hit the big portals. Get step-by-step guides, calculators and vetted pros — all in one place.</p>
+
+      <div class="search-box" data-search-tabs>
+        <div class="search-tabs" role="tablist" aria-label="What are you looking for?">
+          <button type="button" role="tab" aria-selected="true" data-cat="home-sale" data-mode="search" data-ph="City, state or ZIP" data-btn="Search homes">Buy</button>
+          <button type="button" role="tab" aria-selected="false" data-cat="rental" data-mode="search" data-ph="City, state or ZIP" data-btn="Search rentals">Rent</button>
+          <button type="button" role="tab" aria-selected="false" data-cat="sell" data-mode="sell" data-ph="Your ZIP code" data-btn="Get my free plan">Sell</button>
+          <button type="button" role="tab" aria-selected="false" data-cat="land" data-mode="search" data-ph="County, state or ZIP" data-btn="Search land">Land</button>
+          <button type="button" role="tab" aria-selected="false" data-cat="vehicle" data-mode="search" data-ph="Make, model or ZIP" data-btn="Search vehicles">Vehicles</button>
+          <button type="button" role="tab" aria-selected="false" data-cat="business" data-mode="search" data-ph="Industry or location" data-btn="Search businesses">Business</button>
+        </div>
+        <form class="search-row" role="search" data-mode="search">
+          <input type="hidden" name="cat" value="home-sale">
+          <div class="input-icon">{% include icon.html name="search" %}<input type="search" name="q" placeholder="City, state or ZIP" aria-label="Search location"></div>
+          <button class="btn btn-primary" type="submit"><span data-btn-label>Search homes</span> {% include icon.html name="arrow-right" %}</button>
+        </form>
+      </div>
+      <div class="hero-bullets">
+        <span>{% include icon.html name="check-circle" %} Free listings</span>
+        <span>{% include icon.html name="check-circle" %} No commission</span>
+        <span>{% include icon.html name="check-circle" %} Human-reviewed</span>
+        <span>{% include icon.html name="check-circle" %} Private messaging</span>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hv-card hv-main">
+        <div class="hv-cover">
+          <svg class="house" viewBox="0 0 300 180" fill="none"><path d="M40 170V92L150 22l110 70v78" stroke="#fff" stroke-width="8" stroke-linejoin="round"/><rect x="125" y="110" width="50" height="60" rx="4" fill="#fff" fill-opacity=".9"/><rect x="70" y="100" width="36" height="30" rx="3" fill="#fff" fill-opacity=".6"/><rect x="194" y="100" width="36" height="30" rx="3" fill="#fff" fill-opacity=".6"/><path d="M20 170h260" stroke="#fff" stroke-width="8" stroke-linecap="round"/></svg>
+          <div class="l-badges"><span class="badge">By owner</span><span class="badge badge-feat">Featured</span></div>
+        </div>
+        <div class="hv-body">
+          <div class="hv-price">$389,000</div>
+          <div class="small muted">3-bed craftsman · example listing</div>
+          <div class="hv-meta"><span>{% include icon.html name="bed" %} 3 bd</span><span>{% include icon.html name="bath" %} 2 ba</span><span>{% include icon.html name="size" %} 1,650 sqft</span></div>
+        </div>
+      </div>
+      <div class="hv-card hv-save">
+        <div class="small muted">Commission kept on a $389k sale*</div>
+        <div class="big">$11,500+</div>
+        <div class="tiny muted">*Example: 5.5% traditional vs. 2.5% buyer fee + $1,500 costs</div>
+      </div>
+      <div class="hv-card hv-lead">
+        <div class="flex" style="gap:8px"><span class="pulse-dot"></span><strong class="small">New buyer message</strong></div>
+        <p class="small muted mb-0 mt-1">“Is the home still available? We're pre-approved and can tour Saturday.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= MARKET PULSE ======================= -->
+{% if site.data.news.items.size > 0 or site.data.rates.rate30 %}
+<section style="padding:18px 0 0">
+  <div class="container">
+    <div class="ticker">
+      <span class="ticker-label">{% include icon.html name="trend" %} Market pulse</span>
+      {% if site.data.rates.rate30 %}<span class="small nowrap"><b>30-yr avg:</b> <span data-rate30></span> · <b>15-yr:</b> <span data-rate15></span></span>{% endif %}
+      <div class="ticker-track"><ul>
+        {% for n in site.data.news.items limit: 8 %}<li><a href="{{ n.link }}" target="_blank" rel="noopener nofollow">{{ n.title }}</a></li>{% endfor %}
+        {% for n in site.data.news.items limit: 8 %}<li aria-hidden="true"><a href="{{ n.link }}" target="_blank" rel="noopener nofollow" tabindex="-1">{{ n.title }}</a></li>{% endfor %}
+      </ul></div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ======================= CATEGORIES ======================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">{% include icon.html name="grid" %} One marketplace, every “by owner” deal</span><h2>What are you looking for?</h2><p>Homes, rentals, land, vehicles and businesses — listed by the people who own them.</p></div>
+    <div class="grid grid-4">
+      {% for c in site.data.listing_categories %}
+      <a class="cat-tile reveal" href="{{ c.url | relative_url }}">{% include icon.html name=c.icon %}<strong>{{ c.label }}</strong><span>{{ c.desc }}</span></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ======================= LEAD GENERATION ======================= -->
+<section class="section lead-section" id="get-started">
+  <div class="container split">
+    <div>
+      <span class="eyebrow">{% include icon.html name="zap" %} Free owner plan · 60 seconds</span>
+      <h2>Tell us your goal. Get a step-by-step plan built for your ZIP code.</h2>
+      <p class="lead">Whether you're selling, renting out, buying or just exploring, you'll get a personalized plan — plus matches with vetted pros only if you ask for them.</p>
+      <ul class="benefit-list">
+        <li>{% include icon.html name="check" %}<div><strong>Pricing worksheet</strong><span>Recent comparable sales and rents to anchor your price — prepared by a person, not a guess-o-matic.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Paperwork checklist for your state</strong><span>Disclosures, contracts and closing steps so nothing slips.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Optional pro matching</strong><span>Flat-fee MLS, attorneys, inspectors, lenders — only the ones you choose.</span></div></li>
+        <li>{% include icon.html name="check" %}<div><strong>Zero commission, zero obligation</strong><span>Free for owners. Always.</span></div></li>
+      </ul>
+    </div>
+    <div>{% include lead-wizard.html id="homePlan" %}</div>
+  </div>
+</section>
+
+<!-- ======================= HOW IT WORKS ======================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">{% include icon.html name="map" %} How it works</span><h2>Sell or rent by owner in four clear steps</h2><p>The same playbook successful owners use — with tools for every step.</p></div>
+    <div class="steps">
+      <div class="step-card reveal"><h3>Plan &amp; price</h3><p>Use the readiness quiz, comps worksheet and net-proceeds calculator to set a price that sells.</p></div>
+      <div class="step-card reveal"><h3>List free</h3><p>Create a listing with photos, details and a map pin. Upgrade to Featured anytime for more exposure.</p></div>
+      <div class="step-card reveal"><h3>Connect privately</h3><p>Buyers and renters message you through ByOwners. You decide who to call back, tour or screen.</p></div>
+      <div class="step-card reveal"><h3>Close with confidence</h3><p>Follow our closing guides and bring in an attorney or title company — only what you need.</p></div>
+    </div>
+    <div class="center mt-4"><a class="btn btn-primary btn-lg" href="{{ '/sell/' | relative_url }}">List my property free {% include icon.html name="arrow-right" %}</a> <a class="btn btn-outline btn-lg" href="{{ '/tools/fsbo-readiness-quiz/' | relative_url }}">Take the 1-minute quiz</a></div>
+  </div>
+</section>
+
+<!-- ======================= SAVINGS CALCULATOR ======================= -->
+<section class="section section-brand">
+  <div class="container">
+    <div class="savings" data-savings-widget>
+      <div>
+        <span class="eyebrow">{% include icon.html name="percent" %} Savings calculator</span>
+        <h2>See what selling by owner could keep in your pocket</h2>
+        <div class="calc-panel" style="background:rgba(255,255,255,.96);color:#0b1324;border:0">
+          {% include calcs/range.html k="price" label="Home price" unit="$" min=50000 max=3000000 step=5000 value=400000 %}
+          {% include calcs/range.html k="comm" label="Traditional total commission" unit="%" min=0 max=8 step=0.1 value=5.5 %}
+          {% include calcs/range.html k="buyerAgent" label="Buyer-agent fee you'd offer" unit="%" min=0 max=4 step=0.1 value=2.5 %}
+          {% include calcs/range.html k="diy" label="Your by-owner costs" unit="$" min=0 max=10000 step=50 value=1500 %}
+        </div>
+      </div>
+      <div class="savings-out">
+        <div class="small" style="color:#d1fae5">You could keep</div>
+        <div class="result-big" data-o="savings">$0</div>
+        <div class="small" style="color:#d1fae5">Traditional: <b data-o="trad">$0</b> · By owner: <b data-o="fsbo">$0</b> · <b data-o="pct">0%</b> of price</div>
+        <div data-chart="bars" style="text-align:left;margin-top:12px"></div>
+        <a class="btn btn-white btn-lg mt-3" href="{{ '/get-started/' | relative_url }}?goal=sell" data-track="home-savings-cta">Start selling by owner</a>
+        <p class="tiny mt-2" style="color:#a7f3d0">Estimates only. Commissions are negotiable; buyer-agent fees are optional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= LISTINGS ======================= -->
+<section class="section">
+  <div class="container">
+    <div class="flex-between mb-3">
+      <div class="section-head left mb-0"><span class="eyebrow">{% include icon.html name="home" %} Fresh from owners</span><h2>Latest by-owner listings</h2></div>
+      <a class="btn btn-outline" href="{{ '/listings/' | relative_url }}">Browse all {% include icon.html name="arrow-right" %}</a>
+    </div>
+    <div class="listings-grid" data-home-listings data-limit="6"></div>
+    <noscript><p><a href="{{ '/listings/' | relative_url }}">Browse all listings</a></p></noscript>
+  </div>
+</section>
+
+<!-- ======================= TOOLS ======================= -->
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">{% include icon.html name="calc" %} Free tools</span><h2>Pro-grade calculators. No sign-up.</h2><p>Run the numbers like a pro before you list, buy or rent.</p></div>
+    <div class="grid grid-4">
+      {% for t in site.data.tools %}
+      <a class="card hover reveal" href="{{ '/tools/' | append: t.slug | append: '/' | relative_url }}"><div class="card-icon {{ t.color }}">{% include icon.html name=t.icon class="ic-lg" %}</div><h3>{{ t.title }}</h3><p>{{ t.desc }}</p></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ======================= GUIDES ======================= -->
+<section class="section">
+  <div class="container">
+    <div class="flex-between mb-3">
+      <div class="section-head left mb-0"><span class="eyebrow">{% include icon.html name="book" %} Owner guides</span><h2>Learn it once. Save every time.</h2></div>
+      <a class="btn btn-outline" href="{{ '/guides/' | relative_url }}">All {{ site.guides | size }} guides {% include icon.html name="arrow-right" %}</a>
+    </div>
+    {% assign featured = site.guides | where: "featured", true | sort: "date" | reverse %}
+    <div class="grid grid-3">{% for g in featured limit: 6 %}{% include guide-card.html guide=g %}{% endfor %}</div>
+    <div class="chips mt-3">
+      {% for c in site.data.guide_categories %}{% assign ci = c[1].icon %}<a class="chip" href="{{ '/guides/' | relative_url }}?cat={{ c[0] }}">{% include icon.html name=ci %} {{ c[1].label }}</a>{% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include ad.html slot="in_feed" %}
+
+<!-- ======================= VIDEOS ======================= -->
+{% if site.data.videos.items.size > 0 %}
+<section class="section section-soft">
+  <div class="container">
+    <div class="flex-between mb-3">
+      <div class="section-head left mb-0"><span class="eyebrow">{% include icon.html name="play" %} Watch &amp; learn</span><h2>Video tutorials for owners</h2></div>
+      <a class="btn btn-outline" href="{{ '/videos/' | relative_url }}">Video library {% include icon.html name="arrow-right" %}</a>
+    </div>
+    {% assign fv = site.data.videos.items | where: "featured", true %}{% if fv.size < 3 %}{% assign fv = site.data.videos.items %}{% endif %}
+    <div class="video-grid">{% for v in fv limit: 3 %}{% include video-card.html video=v %}{% endfor %}</div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ======================= COMPARISON ======================= -->
+<section class="section">
+  <div class="container container-md">
+    <div class="section-head"><span class="eyebrow">{% include icon.html name="scale" %} Honest comparison</span><h2>Three ways to sell. Pick what fits.</h2><p>We'll tell you when by owner isn't the right call. Here's how the options really compare.</p></div>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th></th><th>Sell by owner (ByOwners)</th><th>Flat-fee MLS + by owner</th><th>Full-service agent</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Listing-side commission</strong></td><td class="yes">$0</td><td>Flat fee (varies by market)</td><td>Negotiable percentage</td></tr>
+          <tr><td><strong>Who sets price &amp; terms</strong></td><td class="yes">You</td><td class="yes">You</td><td>You, with agent advice</td></tr>
+          <tr><td><strong>MLS exposure</strong></td><td>Optional add-on</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td><strong>Showings &amp; negotiation</strong></td><td>You handle</td><td>You handle</td><td>Agent handles</td></tr>
+          <tr><td><strong>Contract &amp; closing</strong></td><td>Attorney or title company</td><td>Attorney or title company</td><td>Agent coordinates</td></tr>
+          <tr><td><strong>Best for</strong></td><td>Hands-on owners, hot markets, known buyers</td><td>Owners wanting reach without full commission</td><td>Owners short on time or in complex sales</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="center mt-2"><a href="{{ '/guides/flat-fee-mls-explained/' | relative_url }}">Flat-fee MLS explained →</a> &nbsp;·&nbsp; <a href="{{ '/guides/real-estate-commission-rule-changes-explained/' | relative_url }}">How commission rules changed →</a></p>
+  </div>
+</section>
+
+<!-- ======================= TRUST ======================= -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">{% include icon.html name="shield" %} Trust &amp; safety</span><h2>Built to protect owners, buyers and renters</h2><p>Direct deals only work when everyone feels safe. Here's how we keep it that way.</p></div>
+    <div class="grid grid-4">
+      <div class="stat"><div class="num">{% include icon.html name="users" class="ic-lg" %}</div><div class="lbl"><strong style="color:#fff">Human review</strong><br>Every listing is checked by a person before it goes live.</div></div>
+      <div class="stat"><div class="num">{% include icon.html name="lock" class="ic-lg" %}</div><div class="lbl"><strong style="color:#fff">Private messaging</strong><br>Owners never have to publish a phone number or email.</div></div>
+      <div class="stat"><div class="num">{% include icon.html name="alert" class="ic-lg" %}</div><div class="lbl"><strong style="color:#fff">Scam warnings</strong><br>Red-flag guidance on every inquiry and listing.</div></div>
+      <div class="stat"><div class="num">{% include icon.html name="home" class="ic-lg" %}</div><div class="lbl"><strong style="color:#fff">Fair housing</strong><br>Discriminatory listings are rejected and removed.</div></div>
+    </div>
+    <div class="center mt-4"><a class="btn btn-white" href="{{ '/safety/' | relative_url }}">Visit the Trust &amp; Safety center</a></div>
+  </div>
+</section>
+
+<!-- ======================= COMMUNITY ======================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">{% include icon.html name="heart" %} Community</span><h2>Built by owners, for owners</h2><p>Win prizes, join the team, or help keep ByOwners free for everyone.</p></div>
+    <div class="grid grid-3">
+      <a class="card hover" href="{{ '/contests/' | relative_url }}"><div class="card-icon warm">{% include icon.html name="award" class="ic-lg" %}</div><h3>Contests &amp; prizes</h3><p>Best listing photo, owner success stories and creator challenges. Win featured placement and sponsor prizes.</p><span class="card-link">Enter a contest {% include icon.html name="arrow-right" %}</span></a>
+      <a class="card hover" href="{{ '/careers/' | relative_url }}"><div class="card-icon violet">{% include icon.html name="users" class="ic-lg" %}</div><h3>Join the team</h3><p>We're hiring writers, video creators, local ambassadors and partnership reps. Remote and flexible.</p><span class="card-link">See open roles {% include icon.html name="arrow-right" %}</span></a>
+      <a class="card hover" href="{{ '/support/' | relative_url }}"><div class="card-icon rose">{% include icon.html name="heart" class="ic-lg" %}</div><h3>Support ByOwners</h3><p>Your support funds free tools, promotion for owner listings, new hires and community prizes.</p><span class="card-link">Chip in {% include icon.html name="arrow-right" %}</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section class="section section-soft">
+  <div class="container container-sm">
+    <div class="section-head"><span class="eyebrow">{% include icon.html name="info" %} FAQ</span><h2>Questions owners ask us</h2></div>
+    <div class="faq">
+      {% for f in page.faqs %}<details{% if forloop.first %} open{% endif %}><summary>{{ f.q }}</summary><div class="ans"><p>{{ f.a }}</p></div></details>{% endfor %}
+    </div>
+    <p class="center mt-3"><a href="{{ '/faq/' | relative_url }}">See all FAQs →</a></p>
+  </div>
+</section>
+
+{% include newsletter.html id="home" %}
